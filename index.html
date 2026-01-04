@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomad Business School - Tenerife | Admission Hors Parcoursup</title>
+    <title>Nomad Business School - Tenerife | L'Excellence hors Parcoursup</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,7 +21,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Bannière Admission Directe */
         .top-bar {
             background: var(--success);
             color: white;
@@ -45,10 +44,9 @@
 
         .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--primary); font-size: 1.5rem; letter-spacing: -1px; }
 
-        /* Hero Section avec TON Image Tenerife1.jpeg */
         .hero {
-            background: linear-gradient(rgba(10, 46, 82, 0.4), rgba(10, 46, 82, 0.4)), 
-                        url('Tenerife1.jpeg'); /* Appel de ton image locale/github */
+            background: linear-gradient(rgba(10, 46, 82, 0.5), rgba(10, 46, 82, 0.5)), 
+                        url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -56,8 +54,8 @@
             text-align: center;
         }
 
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.6rem; font-weight: 300; margin: 25px 0 45px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.6rem; font-weight: 300; margin: 25px 0 45px; }
 
         .btn-main {
             background: var(--secondary);
@@ -69,32 +67,45 @@
             font-size: 1.2rem;
             transition: 0.3s;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
         }
 
-        /* Argumentaire Sérénité */
-        .section-intro {
+        /* SECTION AVANTAGES CONCURRENTIELS */
+        .avantages {
             padding: 80px 5%;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .card-psup {
             background: white;
-            padding: 50px;
-            border-radius: 25px;
-            border-top: 10px solid var(--success);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
-            margin: 40px 0;
-            text-align: left;
         }
 
-        /* Le Concept 3/2 */
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat';
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .grid-avantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .avantage-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--bg-light);
+            transition: 0.3s;
+            border-bottom: 5px solid var(--secondary);
+        }
+
+        .avantage-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .avantage-card h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
+        .avantage-card p { font-size: 0.95rem; line-height: 1.6; color: #555; }
+
+        /* Rythme et Services */
         .rythme {
             background: var(--primary);
             color: white;
-            padding: 80px 5%;
+            padding: 60px 5%;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
@@ -104,26 +115,6 @@
         .rythme-item { flex: 1; min-width: 300px; padding: 20px; }
         .rythme-item h2 { font-size: 3.5rem; color: var(--secondary); margin-bottom: 5px; }
 
-        /* Prise en charge totale */
-        .services {
-            padding: 80px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-box {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
-
-        .service-box:hover { transform: translateY(-5px); }
-        .service-box h3 { color: var(--primary); margin-top: 0; border-left: 4px solid var(--secondary); padding-left: 15px; }
-
-        /* Formulaire */
         .form-section {
             background: #eef2f3;
             padding: 100px 5%;
@@ -145,7 +136,6 @@
             border: 2px solid #eee;
             border-radius: 12px;
             font-size: 1rem;
-            font-family: inherit;
         }
 
         .submit-btn {
@@ -165,79 +155,83 @@
 </head>
 <body>
 
-<div class="top-bar">✅ ADMISSION HORS PARCOURSUP 2026 : Votre avenir commence ici</div>
+<div class="top-bar">☀️ LA SÉRÉNITÉ POUR VOS ENFANTS : Admission 2026 Hors Parcoursup</div>
 
 <header>
-    <div class="logo">NOMAD BUSINESS SCHOOL <span style="font-weight:300">| TENERIFE</span></div>
+    <div class="logo">NOMAD BUSINESS SCHOOL</div>
 </header>
 
 <section class="hero">
     <h1>Étudiez là où les autres passent leurs vacances !</h1>
-    <p>La formation hybride qui s'occupe de tout : Études, Logement, Stages & Loisirs.</p>
-    <a href="#contact" class="btn-main">Demander mon dossier d'admissibilité</a>
+    <p>Le seul campus à Tenerife qui prend tout en charge, de l'admission au premier job.</p>
+    <a href="#contact" class="btn-main">Sécuriser l'avenir de mon enfant</a>
 </section>
 
-<section class="section-intro">
-    <h2>Bienvenue dans l'ère de la sérénité</h2>
-    <p>Oubliez le stress des listes d'attente et la froideur des algorithmes. Nomad Business School propose une alternative humaine et rassurante au parcours "normal".</p>
-    
-    <div class="card-psup">
-        <h3 style="color: var(--success); margin-top:0;">Admission Hors Parcoursup</h3>
-        <p>Prenez une longueur d'avance en évitant le système classique. Nous évaluons votre potentiel et votre motivation lors d'un échange direct et vous donnons une réponse ferme sous 48h. Sécurisez votre logement et votre formation dès aujourd'hui pour une rentrée 2026 sereine.</p>
+<section class="avantages">
+    <h2 class="section-title">Pourquoi choisir Nomad Business School ?</h2>
+    <div class="grid-avantages">
+        <div class="avantage-card">
+            <h3>🚀 Zéro stress Parcoursup</h3>
+            <p>Ne laissez pas un algorithme décider de l'avenir de votre enfant. Nous privilégions la motivation humaine avec une réponse d'admission ferme sous 48h.</p>
+        </div>
+        <div class="avantage-card">
+            <h3>🏠 Logement 100% Garanti</h3>
+            <p>Nous levons le principal frein de l'expatriation : nous gérons directement la colocation en villa ou l'accueil chez l'habitant. Un cadre sain et sécurisé dès l'arrivée.</p>
+        </div>
+        <div class="avantage-card">
+            <h3>🤝 Coaching Humain au quotidien</h3>
+            <p>Contrairement aux formations en ligne classiques, nos apprenants sont encadrés par un coach présentiel chaque jour dans nos bureaux pour garantir leur réussite.</p>
+        </div>
+        <div class="avantage-card">
+            <h3>💼 Immersion Professionnelle</h3>
+            <p>Avec notre rythme 3 jours école / 2 jours stage, l'étudiant forge son expérience et son réseau au sein du tissu économique dynamique des Canaries.</p>
+        </div>
+        <div class="avantage-card">
+            <h3>🌍 Bilinguisme & Soft Skills</h3>
+            <p>Vivre à Tenerife, c'est maîtriser l'espagnol naturellement et développer une autonomie précieuse pour les recruteurs. Nous gérons aussi les loisirs et l'intégration.</p>
+        </div>
+        <div class="avantage-card">
+            <h3>🎓 Diplôme & Masterclass</h3>
+            <p>Un cursus reconnu complété par des interventions hebdomadaires d'experts et de chefs d'entreprise pour une vision réelle du marché.</p>
+        </div>
     </div>
 </section>
 
 <section class="rythme">
     <div class="rythme-item">
         <h2>3 JOURS</h2>
-        <p><strong>COACHING & MASTERCLASS</strong><br>Formation digitale accompagnée par un coach présentiel au quotidien dans nos bureaux de Santa Cruz.</p>
+        <p><strong>FOCUS ÉCOLE</strong><br>Travail encadré & Mentorat</p>
     </div>
     <div class="rythme-item">
         <h2>2 JOURS</h2>
-        <p><strong>IMMERSION ENTREPRISE</strong><br>Mise en pratique terrain et développement de votre réseau professionnel aux Canaries.</p>
+        <p><strong>EXPÉRIENCE TERRAIN</strong><br>Immersion en Entreprise</p>
     </div>
 </section>
 
-<div class="services">
-    <div class="service-box">
-        <h3>Logement Clé en Main</h3>
-        <p>Parce que la logistique ne doit pas être un frein, nous gérons votre hébergement : en <strong>Colocation étudiante</strong> (villas) ou <strong>chez l'habitant</strong> via notre réseau local.</p>
-    </div>
-    <div class="service-box">
-        <h3>Stages & Réseau Pro</h3>
-        <p>On ne vous laisse pas seul face aux entreprises. Nous utilisons notre réseau local pour vous accompagner dans la recherche de vos stages à Tenerife.</p>
-    </div>
-    <div class="service-box">
-        <h3>Apprendre la Vie</h3>
-        <p>Ici, on ne fait pas que passer un BTS. On apprend l'autonomie, le bilinguisme espagnol et on profite des loisirs incroyables de l'île.</p>
-    </div>
-</div>
-
 <section class="form-section" id="contact">
-    <h2 style="text-align: center; font-family: 'Montserrat';">Prêt(e) pour l'aventure Nomad ?</h2>
-    <p style="text-align: center; margin-bottom: 50px;">Dites adieu au stress de Parcoursup et rejoignez une école qui s'occupe de tout.</p>
+    <h2 style="text-align: center; font-family: 'Montserrat';">Recevoir le dossier d'admissibilité</h2>
+    <p style="text-align: center; margin-bottom: 50px;">Un processus simple, humain et bienveillant pour préparer la rentrée 2026.</p>
     
     <form>
-        <input type="text" placeholder="Prénom et Nom de l'étudiant(e)" required>
+        <input type="text" placeholder="Nom et Prénom de l'étudiant(e)" required>
         <input type="email" placeholder="Email de contact (Parent ou Étudiant)" required>
         
         <select required>
-            <option value="">Quelle filière vous intéresse ?</option>
+            <option value="">Filière de prédilection</option>
             <option>BTS Tourisme</option>
             <option>BTS Commerce International</option>
             <option>BTS Gestion de la PME</option>
         </select>
         
-        <textarea rows="4" placeholder="Une question ? (Hébergement, coaching, vie à Tenerife...)"></textarea>
+        <textarea rows="4" placeholder="Quels sont vos besoins ? (Logement, question sur le coaching...)"></textarea>
         
-        <button type="submit" class="submit-btn">Recevoir mon dossier de candidature</button>
+        <button type="submit" class="submit-btn">Obtenir les informations</button>
     </form>
 </section>
 
 <footer>
-    <p style="font-size: 1.2rem; font-weight: bold; margin-bottom: 10px;">NOMAD BUSINESS SCHOOL TENERIFE</p>
-    <p>Campus Executive : Calle La Salle, Santa Cruz de Tenerife</p>
-    <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.5;">Formation hybride accompagnée : Scolarité Digitale + Coaching Présentiel + Logement inclus.</p>
+    <p style="font-size: 1.2rem; font-weight: bold;">NOMAD BUSINESS SCHOOL TENERIFE</p>
+    <p>Calle La Salle, Santa Cruz de Tenerife • 15 000€ / an Tout Inclus</p>
 </footer>
 
 </body>
