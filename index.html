@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenerife Academy | Votre BTS au Soleil</title>
+    <style>
+        /* Couleurs et Typographie */
+        :root {
+            --primary: #004a99;
+            --secondary: #ff9900;
+            --light: #f4f7f6;
+            --dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--dark);
+        }
+
+        /* En-tête */
+        header {
+            background: white;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Section Hero */
+        .hero {
+            background: linear-gradient(rgba(0, 74, 153, 0.7), rgba(0, 74, 153, 0.7)), 
+                        url('https://images.unsplash.com/photo-1505881502353-a1986add3732?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; }
+
+        /* Grille des Formations */
+        .section-title { text-align: center; padding: 50px 0 20px; font-size: 2rem; }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 0 5%;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .card:hover { transform: translateY(-10px); }
+        .card h3 { color: var(--primary); }
+
+        /* Section Grande Colo */
+        .colo {
+            background: var(--light);
+            padding: 60px 5%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .colo-text { flex: 1; min-width: 300px; }
+        .colo-highlight { 
+            background: var(--secondary); 
+            color: white; 
+            padding: 30px; 
+            border-radius: 12px;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Formulaire */
+        .contact-section { padding: 60px 5%; background: white; }
+        
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: 100%;
+        }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">TENERIFE ACADEMY</div>
+    <nav>
+        <strong>Rentrée 2026 : Inscriptions Ouvertes</strong>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Devenez Bilingue, Obtenez votre BTS au Soleil</h1>
+    <p>Une expérience unique de 2 ans à Santa Cruz de Tenerife. Formation d'excellence avec supports CNED, masterclass professionnelles et logement inclus.</p>
+    <a href="#contact" style="text-decoration: none; background: var(--secondary); color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold;">Demander le dossier d'inscription</a>
+</section>
+
+<h2 class="section-title">Nos 3 Filières d'Excellence</h2>
+<div class="container">
+    <div class="card">
+        <h3>BTS Tourisme</h3>
+        <p>Apprenez au cœur de la 1ère destination européenne. Stages garantis dans les plus grands complexes hôteliers.</p>
+    </div>
+    <div class="card">
+        <h3>BTS Commerce International</h3>
+        <p>Maîtrisez l'import-export et la logistique au carrefour de l'Europe, de l'Afrique et des Amériques.</p>
+    </div>
+    <div class="card">
+        <h3>BTS Gestion de la PME</h3>
+        <p>Devenez le bras droit des dirigeants. Une formation polyvalente (RH, Compta, Commercial) très demandée.</p>
+    </div>
+</div>
+
+<section class="colo">
+    <div class="colo-text">
+        <h2>Le concept "Grande Colo"</h2>
+        <p>Parce qu'on apprend mieux ensemble, nos étudiants vivent en colocation dans de grandes villas sécurisées. Vous gardez le lien avec la communauté française tout en pratiquant l'espagnol au quotidien.</p>
+        <ul>
+            <li>Logement clé en main inclus</li>
+            <li>Bureaux modernes de 210m² à Santa Cruz</li>
+            <li>Suivi pédagogique personnalisé en présentiel</li>
+        </ul>
+    </div>
+    <div class="colo-highlight">
+        <h3>Forfait Tout Inclus : 15 000€ / an</h3>
+        <p>✓ Scolarité complète (Supports CNED inclus)</p>
+        <p>✓ Logement en colocation étudiante</p>
+        <p>✓ Masterclass hebdomadaires par des pros</p>
+        <p>✓ Accompagnement recherche de stages</p>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <h2 style="text-align: center;">Contactez notre chargé de recrutement</h2>
+    <form action="#">
+        <label>Nom et Prénom</label>
+        <input type="text" placeholder="Ex: Jean Dupont" required>
+        
+        <label>Email</label>
+        <input type="email" placeholder="votre@email.com" required>
+        
+        <label>BTS Souhaité</label>
+        <select required>
+            <option value="">-- Sélectionnez une option --</option>
+            <option>BTS Tourisme</option>
+            <option>BTS Commerce International</option>
+            <option>BTS Gestion de la PME</option>
+        </select>
+        
+        <label>Votre Message</label>
+        <textarea rows="5" placeholder="Posez vos questions sur le logement, les cours ou le bilinguisme..."></textarea>
+        
+        <button type="submit" class="btn-submit">Recevoir la brochure détaillée</button>
+    </form>
+</section>
+
+<footer>
+    <p>TENERIFE ACADEMY - Calle La Salle, Santa Cruz de Tenerife</p>
+    <p style="font-size: 0.8rem; opacity: 0.7;">Formation préparée via les supports officiels du CNED.</p>
+</footer>
+
+</body>
+</html>
