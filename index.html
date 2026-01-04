@@ -3,219 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomad Business School - Tenerife | Formation Executive</title>
+    <title>Nomad Business School - Tenerife | Admission Hors Parcoursup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0f2027;
-            --secondary: #f2994a;
-            --accent: #27ae60;
-            --text-light: #f8f9fa;
+            --primary: #0a2e52;
+            --secondary: #f39c12;
+            --success: #27ae60;
+            --bg-light: #f9fbfc;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             color: #333;
-            background-color: #fff;
+            background: var(--bg-light);
         }
 
-        /* Bannière d'urgence Parcoursup */
+        h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
+
+        /* Bannière Sérénité */
         .top-bar {
-            background: var(--accent);
+            background: var(--success);
             color: white;
             text-align: center;
             padding: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header {
-            padding: 25px 5%;
+            background: white;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: white;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            text-transform: uppercase;
-        }
+        .logo { font-weight: 900; color: var(--primary); font-size: 1.4rem; }
 
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(15, 32, 39, 0.5), rgba(15, 32, 39, 0.5)), 
-                        url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(10, 46, 82, 0.6), rgba(10, 46, 82, 0.6)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 120px 5%;
+            padding: 100px 5%;
             text-align: center;
         }
 
-        .hero h1 { font-size: 3.8rem; margin: 0; line-height: 1.1; }
-        .hero p { font-size: 1.4rem; margin: 20px 0 40px; font-weight: 300; }
+        .hero h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; }
+        .hero p { font-size: 1.5rem; font-weight: 300; margin: 20px 0 40px; }
 
-        .badge-psup {
-            background: white;
-            color: var(--primary);
-            padding: 10px 25px;
+        .btn-main {
+            background: var(--secondary);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
+            font-size: 1.2rem;
+            transition: 0.3s;
             display: inline-block;
-            margin-bottom: 20px;
         }
 
-        /* Section Rythme Hybride */
-        .rythme-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            background: var(--primary);
-            color: white;
-        }
-
-        .rythme-box {
-            padding: 60px 10%;
-            border: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-
-        .rythme-box h2 { color: var(--secondary); font-size: 2.5rem; margin-bottom: 10px; }
-
-        /* Contenu Pédagogique */
-        .features {
+        /* Argumentaire Parcoursup */
+        .serenite-section {
             padding: 80px 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .feature-card {
+        .highlight-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 8px solid var(--success);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin: 40px 0;
             text-align: left;
         }
 
-        .feature-card h3 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--secondary);
-            display: inline-block;
-            margin-bottom: 15px;
+        /* Rythme et Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 5% 80px;
         }
+
+        .service-card {
+            background: var(--primary);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .service-card h3 { color: var(--secondary); margin-top: 0; }
 
         /* Formulaire */
         .form-section {
-            background: #f4f7f6;
+            background: #fff;
             padding: 80px 5%;
+            border-top: 1px solid #eee;
         }
 
-        .contact-container {
-            max-width: 800px;
+        form {
+            max-width: 600px;
             margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         input, select, textarea {
-            width: 100%;
-            padding: 18px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
             border: 2px solid #eee;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 1rem;
-            outline: none;
         }
 
-        .btn-cta {
-            background: var(--secondary);
+        .submit-btn {
+            background: var(--primary);
             color: white;
-            padding: 20px;
             border: none;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            font-weight: 700;
+            padding: 20px;
+            border-radius: 10px;
+            font-weight: bold;
             cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
+            font-size: 1.1rem;
         }
 
-        .btn-cta:hover { transform: scale(1.02); background: #e67e22; }
-
-        footer { padding: 50px; text-align: center; background: var(--primary); color: white; opacity: 0.9; }
+        footer { background: #111; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">🔥 ADMISSION DIRECTE HORS PARCOURSUP - RENTRÉE 2026</div>
+<div class="top-bar">✅ ADMISSION HORS PARCOURSUP : Reprenez le contrôle de votre avenir.</div>
 
 <header>
-    <div class="logo">Nomad Business School</div>
-    <div style="font-weight: 600;">SANTA CRUZ DE TENERIFE</div>
+    <div class="logo">NOMAD BUSINESS SCHOOL <span style="font-weight:300">| TENERIFE</span></div>
 </header>
 
 <section class="hero">
-    <div class="badge-psup">ZÉRO STRESS PARCOURSUP</div>
-    <h1>Libérez votre potentiel sous le soleil</h1>
-    <p>3 filières d'excellence | Vie en Grande Colo | Coaching quotidien</p>
-    <a href="#candidature" style="background:var(--secondary); color:white; padding:18px 40px; text-decoration:none; border-radius:12px; font-weight:bold; font-size:1.1rem;">Postuler à la prochaine session</a>
+    <h1>Étudiez là où les autres passent leurs vacances !</h1>
+    <p>Le premier campus hybride qui s'occupe de tout, pour vous.</p>
+    <a href="#contact" class="btn-main">Demander une brochure gratuite</a>
 </section>
 
-<section class="rythme-section">
-    <div class="rythme-box">
-        <h2>3 JOURS</h2>
-        <p><strong>IMMERSION ÉCOLE</strong><br>Travail digital encadré par votre coach sur place et masterclass avec des experts locaux.</p>
-    </div>
-    <div class="rythme-box" style="background: rgba(255,255,255,0.05);">
-        <h2>2 JOURS</h2>
-        <p><strong>IMMERSION ENTREPRISE</strong><br>Mise en pratique directe de vos compétences au sein du tissu économique de Tenerife.</p>
-    </div>
-</section>
-
-<section class="features">
-    <div class="feature-card">
-        <h3>Masterclass hebdomadaires</h3>
-        <p>Chaque semaine, un professionnel (CEO, consultant, expert export) vient partager son expertise en direct dans nos bureaux.</p>
-    </div>
-    <div class="feature-card">
-        <h3>Coaching à 360°</h3>
-        <p>Pas de cours magistraux ennuyeux. Vous avancez sur vos supports digitaux avec un mentor à vos côtés pour débloquer chaque situation.</p>
-    </div>
-    <div class="feature-card">
-        <h3>Bilinguisme Natif</h3>
-        <p>Grâce à l'immersion totale à Tenerife et nos ateliers de conversation, vous devenez bilingue en espagnol de manière naturelle.</p>
+<section class="serenite-section">
+    <h2>La sérénité avant tout</h2>
+    <p>Fini l'angoisse des listes d'attente. À la Nomad Business School, nous croyons en votre motivation, pas en un algorithme.</p>
+    
+    <div class="highlight-card">
+        <h3>Admission Hors Parcoursup</h3>
+        <p>Contrairement au parcours "normal", nous vous offrons une réponse claire sous 48h. Un processus d'admission humain, serein et direct pour sécuriser votre rentrée 2026 sans stress.</p>
     </div>
 </section>
 
-<section class="form-section" id="candidature">
-    <div class="contact-container">
-        <h2 style="text-align: center; font-size: 2.2rem; margin-top: 0;">Prêt(e) pour l'aventure ?</h2>
-        <p style="text-align: center; color: #666; margin-bottom: 40px;">Réponse d'admissibilité sous 48h. Sécurisez votre avenir hors Parcoursup.</p>
+<div class="services-grid">
+    <div class="service-card">
+        <h3>On s'occupe de votre lit</h3>
+        <p>Le logement est garanti : vivez l'esprit d'équipe dans notre <strong>"Grande Colo"</strong> (villas avec piscine) ou choisissez l'immersion totale <strong>chez l'habitant</strong> via notre réseau de partenaires certifiés.</p>
+    </div>
+    <div class="service-card">
+        <h3>On s'occupe de votre carrière</h3>
+        <p>Rythme hybride : <strong>3 jours d'école / 2 jours de stage</strong>. Nous utilisons nos contacts locaux pour vous aider à décrocher vos stages à Tenerife.</p>
+    </div>
+    <div class="service-card">
+        <h3>On s'occupe de votre vie</h3>
+        <p>Loisirs, excursions, bilinguisme espagnol... Vous n'apprenez pas seulement un BTS, vous apprenez la vie en mode Nomad.</p>
+    </div>
+</div>
+
+<section class="form-section" id="contact">
+    <h2 style="text-align: center;">Rejoignez la promotion 2026</h2>
+    <p style="text-align: center; margin-bottom: 40px;">Remplissez ce formulaire pour être contacté par notre chargé de recrutement.</p>
+    
+    <form>
+        <input type="text" placeholder="Nom et Prénom de l'étudiant" required>
+        <input type="email" placeholder="Email de contact" required>
+        <select required>
+            <option value="">Quelle filière vous intéresse ?</option>
+            <option>BTS Tourisme</option>
+            <option>BTS Commerce International</option>
+            <option>BTS Gestion de la PME</option>
+        </select>
+        <textarea rows="4" placeholder="Une question sur le logement ou les stages ? Dites-nous tout !"></textarea>
         
-        <form>
-            <input type="text" placeholder="Nom et Prénom de l'étudiant(e)" required>
-            <input type="email" placeholder="Email (Parent ou Étudiant)" required>
-            
-            <select required>
-                <option value="">Filière souhaitée</option>
-                <option>BTS Tourisme (Executive)</option>
-                <option>BTS Commerce International (Expert)</option>
-                <option>BTS Gestion de la PME (Leader)</option>
-            </select>
-
-            <div style="background: #fff9e6; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--secondary);">
-                <strong>Le pack Nomad inclus :</strong> Formation + Coaching + Logement en villa "Grande Colo" + Accès Bureaux 24/7.
-            </div>
-
-            <button type="submit" class="btn-cta">Recevoir mon dossier de candidature</button>
-        </form>
-    </div>
+        <button type="submit" class="submit-btn">Recevoir mon dossier d'admissibilité</button>
+    </form>
 </section>
 
 <footer>
-    <p><strong>Nomad Business School - Tenerife</strong></p>
-    <p>Calle La Salle, Santa Cruz de Tenerife | 15 000€ par an tout inclus</p>
-    <p style="font-size: 0.8rem; margin-top: 20px;">Admission sur dossier et entretien de motivation uniquement.</p>
+    <p><strong>NOMAD BUSINESS SCHOOL - TENERIFE</strong></p>
+    <p>Le campus 100% accompagné : Formation Digitale + Coach Présentiel + Logement</p>
+    <p style="margin-top:20px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Nomad Business School. Tous droits réservés.</p>
 </footer>
 
 </body>
