@@ -3,52 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomad Business School | BTS à Tenerife</title>
+    <title>Nomad Business School - Tenerife | Formation Executive</title>
     <style>
         :root {
-            --primary: #1a2a6c;
+            --primary: #0f2027;
             --secondary: #f2994a;
             --accent: #27ae60;
-            --light: #f8f9fa;
+            --text-light: #f8f9fa;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             color: #333;
-            background-color: var(--light);
+            background-color: #fff;
         }
 
-        /* Bannière Parcoursup - Très importante */
-        .parcoursup-alert {
+        /* Bannière d'urgence Parcoursup */
+        .top-bar {
             background: var(--accent);
             color: white;
             text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            padding: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
         header {
-            background: white;
-            padding: 20px 5%;
+            padding: 25px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: white;
         }
 
         .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.5rem;
+            font-weight: 900;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .hero {
-            background: linear-gradient(rgba(26, 42, 108, 0.6), rgba(26, 42, 108, 0.6)), 
-                        url('https://images.unsplash.com/photo-1543731068-7e0f5beff43a?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(15, 32, 39, 0.5), rgba(15, 32, 39, 0.5)), 
+                        url('https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -56,136 +54,168 @@
             text-align: center;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 30px; }
+        .hero h1 { font-size: 3.8rem; margin: 0; line-height: 1.1; }
+        .hero p { font-size: 1.4rem; margin: 20px 0 40px; font-weight: 300; }
 
-        .no-parcoursup-badge {
-            display: inline-block;
-            background: var(--secondary);
-            padding: 15px 25px;
+        .badge-psup {
+            background: white;
+            color: var(--primary);
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: bold;
-            margin-bottom: 30px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
-        .grid {
+        /* Section Rythme Hybride */
+        .rythme-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            padding: 50px 5%;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 5px solid var(--primary);
-        }
-
-        .section-colo {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             background: var(--primary);
             color: white;
-            padding: 80px 5%;
+        }
+
+        .rythme-box {
+            padding: 60px 10%;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
         }
 
-        .form-container {
-            max-width: 700px;
-            margin: -50px auto 50px;
+        .rythme-box h2 { color: var(--secondary); font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* Contenu Pédagogique */
+        .features {
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: left;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        /* Formulaire */
+        .form-section {
+            background: #f4f7f6;
+            padding: 80px 5%;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
             background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: 2px solid #eee;
+            border-radius: 12px;
             font-size: 1rem;
+            outline: none;
         }
 
-        .btn-main {
+        .btn-cta {
             background: var(--secondary);
             color: white;
-            padding: 20px 40px;
+            padding: 20px;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
             transition: 0.3s;
         }
 
-        .btn-main:hover { background: #e67e22; }
+        .btn-cta:hover { transform: scale(1.02); background: #e67e22; }
 
-        footer { text-align: center; padding: 40px; color: #7f8c8d; }
+        footer { padding: 50px; text-align: center; background: var(--primary); color: white; opacity: 0.9; }
     </style>
 </head>
 <body>
 
-<div class="parcoursup-alert">
-    🚀 INSCRIPTIONS DIRECTES 2026 : Admission hors Parcoursup. Réponse en 48h.
-</div>
+<div class="top-bar">🔥 ADMISSION DIRECTE HORS PARCOURSUP - RENTRÉE 2026</div>
 
 <header>
-    <div class="logo">Nomad Business School <span style="color:var(--secondary)">• Tenerife</span></div>
+    <div class="logo">Nomad Business School</div>
+    <div style="font-weight: 600;">SANTA CRUZ DE TENERIFE</div>
 </header>
 
 <section class="hero">
-    <div class="no-parcoursup-badge">ADMISSION SANS PARCOURSUP</div>
-    <h1>Étudiez là où les autres passent leurs vacances</h1>
-    <h2>BTS Tourisme | BTS Commerce International | BTS Gestion de la PME</h2>
-    <p>Une formation diplômante (CNED), un cadre de vie exceptionnel et un logement clé en main.</p>
+    <div class="badge-psup">ZÉRO STRESS PARCOURSUP</div>
+    <h1>Libérez votre potentiel sous le soleil</h1>
+    <p>3 filières d'excellence | Vie en Grande Colo | Coaching quotidien</p>
+    <a href="#candidature" style="background:var(--secondary); color:white; padding:18px 40px; text-decoration:none; border-radius:12px; font-weight:bold; font-size:1.1rem;">Postuler à la prochaine session</a>
 </section>
 
-<div class="grid">
-    <div class="card">
-        <h3>BTS Tourisme</h3>
-        <p>Apprentissage au coeur de la 1ère destination touristique mondiale.</p>
+<section class="rythme-section">
+    <div class="rythme-box">
+        <h2>3 JOURS</h2>
+        <p><strong>IMMERSION ÉCOLE</strong><br>Travail digital encadré par votre coach sur place et masterclass avec des experts locaux.</p>
     </div>
-    <div class="card">
-        <h3>BTS Commerce Int.</h3>
-        <p>Maîtrisez l'export depuis le hub stratégique des Canaries.</p>
+    <div class="rythme-box" style="background: rgba(255,255,255,0.05);">
+        <h2>2 JOURS</h2>
+        <p><strong>IMMERSION ENTREPRISE</strong><br>Mise en pratique directe de vos compétences au sein du tissu économique de Tenerife.</p>
     </div>
-    <div class="card">
-        <h3>BTS Gestion PME</h3>
-        <p>Devenez le bras droit polyvalent d'un dirigeant d'entreprise.</p>
-    </div>
-</div>
-
-<section class="section-colo">
-    <h2>Le Concept "Grande Colo"</h2>
-    <p style="max-width: 700px; margin: 0 auto;">Vivez en immersion avec d'autres étudiants français. Logement en villas avec piscine, bureaux de 210m² en centre-ville et bilinguisme garanti en 2 ans.</p>
-    <p style="font-size: 1.5rem; margin-top: 20px; font-weight: bold;">Forfait Scolarité + Logement : 15 000€ / an</p>
 </section>
 
-<div class="form-container" id="contact">
-    <h2 style="text-align: center; color: var(--primary);">Demandez votre Brochure</h2>
-    <p style="text-align: center;">Évitez le stress de Parcoursup et sécurisez votre place dès aujourd'hui.</p>
-    <form>
-        <input type="text" placeholder="Prénom et Nom de l'étudiant(e)" required>
-        <input type="email" placeholder="Email de contact" required>
-        <input type="tel" placeholder="Téléphone">
-        <select required>
-            <option value="">Sélectionnez votre BTS</option>
-            <option>BTS Tourisme</option>
-            <option>BTS Commerce International</option>
-            <option>BTS Gestion de la PME</option>
-        </select>
-        <textarea rows="4" placeholder="Comment avez-vous connu Nomad Business School ?"></textarea>
-        <button type="submit" class="btn-main">Recevoir mon dossier de candidature</button>
-    </form>
-</div>
+<section class="features">
+    <div class="feature-card">
+        <h3>Masterclass hebdomadaires</h3>
+        <p>Chaque semaine, un professionnel (CEO, consultant, expert export) vient partager son expertise en direct dans nos bureaux.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Coaching à 360°</h3>
+        <p>Pas de cours magistraux ennuyeux. Vous avancez sur vos supports digitaux avec un mentor à vos côtés pour débloquer chaque situation.</p>
+    </div>
+    <div class="feature-card">
+        <h3>Bilinguisme Natif</h3>
+        <p>Grâce à l'immersion totale à Tenerife et nos ateliers de conversation, vous devenez bilingue en espagnol de manière naturelle.</p>
+    </div>
+</section>
+
+<section class="form-section" id="candidature">
+    <div class="contact-container">
+        <h2 style="text-align: center; font-size: 2.2rem; margin-top: 0;">Prêt(e) pour l'aventure ?</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">Réponse d'admissibilité sous 48h. Sécurisez votre avenir hors Parcoursup.</p>
+        
+        <form>
+            <input type="text" placeholder="Nom et Prénom de l'étudiant(e)" required>
+            <input type="email" placeholder="Email (Parent ou Étudiant)" required>
+            
+            <select required>
+                <option value="">Filière souhaitée</option>
+                <option>BTS Tourisme (Executive)</option>
+                <option>BTS Commerce International (Expert)</option>
+                <option>BTS Gestion de la PME (Leader)</option>
+            </select>
+
+            <div style="background: #fff9e6; padding: 20px; border-radius: 12px; margin-bottom: 20px; border-left: 5px solid var(--secondary);">
+                <strong>Le pack Nomad inclus :</strong> Formation + Coaching + Logement en villa "Grande Colo" + Accès Bureaux 24/7.
+            </div>
+
+            <button type="submit" class="btn-cta">Recevoir mon dossier de candidature</button>
+        </form>
+    </div>
+</section>
 
 <footer>
-    <p>&copy; 2026 Nomad Business School Tenerife. Formation via supports officiels du CNED.</p>
-    <p>Calle La Salle, Santa Cruz de Tenerife, Espagne.</p>
+    <p><strong>Nomad Business School - Tenerife</strong></p>
+    <p>Calle La Salle, Santa Cruz de Tenerife | 15 000€ par an tout inclus</p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">Admission sur dossier et entretien de motivation uniquement.</p>
 </footer>
 
 </body>
