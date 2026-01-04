@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nomad Business School - Tenerife | L'Excellence hors Parcoursup</title>
+    <title>Nomad Business School - Tenerife | L'alternative à Parcoursup</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #0a2e52;
             --secondary: #f39c12;
             --success: #27ae60;
+            --danger: #e74c3c;
             --bg-light: #f4f7f9;
         }
 
@@ -27,7 +28,6 @@
             text-align: center;
             padding: 14px;
             font-weight: bold;
-            font-size: 1.1rem;
             position: sticky;
             top: 0;
             z-index: 1001;
@@ -42,7 +42,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--primary); font-size: 1.5rem; letter-spacing: -1px; }
+        .logo { font-family: 'Montserrat', sans-serif; font-weight: 900; color: var(--primary); font-size: 1.5rem; }
 
         .hero {
             background: linear-gradient(rgba(10, 46, 82, 0.5), rgba(10, 46, 82, 0.5)), 
@@ -50,188 +50,175 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 150px 5%;
+            padding: 120px 5%;
             text-align: center;
         }
 
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.6rem; font-weight: 300; margin: 25px 0 45px; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3.2rem; margin: 0; line-height: 1.1; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.5rem; margin: 20px 0 40px; }
 
         .btn-main {
             background: var(--secondary);
             color: white;
-            padding: 22px 45px;
+            padding: 20px 40px;
             text-decoration: none;
             border-radius: 12px;
             font-weight: bold;
-            font-size: 1.2rem;
-            transition: 0.3s;
+            font-size: 1.1rem;
             display: inline-block;
         }
 
-        /* SECTION AVANTAGES CONCURRENTIELS */
-        .avantages {
+        /* SECTION COMPARATIF FINANCIER */
+        .comparatif {
             padding: 80px 5%;
             background: white;
         }
 
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat';
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 50px;
+        .section-title { text-align: center; font-family: 'Montserrat'; color: var(--primary); margin-bottom: 40px; }
+
+        .table-container { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .grid-avantages {
+        th, td { padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        th { background: var(--primary); color: white; }
+
+        .highlight-nomad { background: rgba(39, 174, 96, 0.1); font-weight: bold; }
+        .bad { color: var(--danger); font-weight: bold; }
+        .good { color: var(--success); font-weight: bold; }
+
+        /* AVANTAGES */
+        .avantages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 60px 5%;
         }
 
         .avantage-card {
-            padding: 30px;
-            border-radius: 20px;
-            background: var(--bg-light);
-            transition: 0.3s;
-            border-bottom: 5px solid var(--secondary);
-        }
-
-        .avantage-card:hover { transform: translateY(-10px); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .avantage-card h3 { color: var(--primary); margin-top: 0; font-size: 1.3rem; }
-        .avantage-card p { font-size: 0.95rem; line-height: 1.6; color: #555; }
-
-        /* Rythme et Services */
-        .rythme {
-            background: var(--primary);
-            color: white;
-            padding: 60px 5%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            text-align: center;
-        }
-
-        .rythme-item { flex: 1; min-width: 300px; padding: 20px; }
-        .rythme-item h2 { font-size: 3.5rem; color: var(--secondary); margin-bottom: 5px; }
-
-        .form-section {
-            background: #eef2f3;
-            padding: 100px 5%;
-        }
-
-        form {
-            max-width: 650px;
-            margin: 0 auto;
             background: white;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 16px;
-            margin-bottom: 20px;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            font-size: 1rem;
-        }
+        /* FORMULAIRE */
+        .form-section { background: #eef2f3; padding: 100px 5%; }
+        form { max-width: 650px; margin: 0 auto; background: white; padding: 50px; border-radius: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        input, select, textarea { width: 100%; padding: 16px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 12px; font-size: 1rem; }
+        .submit-btn { background: var(--primary); color: white; border: none; padding: 22px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; }
 
-        .submit-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 22px;
-            border-radius: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1.2rem;
-            width: 100%;
-        }
-
-        footer { background: #071a2b; color: white; padding: 60px 5%; text-align: center; }
+        footer { background: #071a2b; color: white; padding: 40px; text-align: center; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ LA SÉRÉNITÉ POUR VOS ENFANTS : Admission 2026 Hors Parcoursup</div>
+<div class="top-bar">🎓 RENTRÉE 2026 : Admission Hors Parcoursup & Logement Garanti</div>
 
 <header>
     <div class="logo">NOMAD BUSINESS SCHOOL</div>
+    <div style="font-weight: 600; color: var(--secondary);">SANTA CRUZ DE TENERIFE</div>
 </header>
 
 <section class="hero">
     <h1>Étudiez là où les autres passent leurs vacances !</h1>
-    <p>Le seul campus à Tenerife qui prend tout en charge, de l'admission au premier job.</p>
-    <a href="#contact" class="btn-main">Sécuriser l'avenir de mon enfant</a>
+    <p>Le premier campus hybride "Tout Inclus" : Formation, Coaching & Hébergement.</p>
+    <a href="#contact" class="btn-main">Demander mon dossier d'admissibilité</a>
 </section>
 
-<section class="avantages">
-    <h2 class="section-title">Pourquoi choisir Nomad Business School ?</h2>
-    <div class="grid-avantages">
-        <div class="avantage-card">
-            <h3>🚀 Zéro stress Parcoursup</h3>
-            <p>Ne laissez pas un algorithme décider de l'avenir de votre enfant. Nous privilégions la motivation humaine avec une réponse d'admission ferme sous 48h.</p>
-        </div>
-        <div class="avantage-card">
-            <h3>🏠 Logement 100% Garanti</h3>
-            <p>Nous levons le principal frein de l'expatriation : nous gérons directement la colocation en villa ou l'accueil chez l'habitant. Un cadre sain et sécurisé dès l'arrivée.</p>
-        </div>
-        <div class="avantage-card">
-            <h3>🤝 Coaching Humain au quotidien</h3>
-            <p>Contrairement aux formations en ligne classiques, nos apprenants sont encadrés par un coach présentiel chaque jour dans nos bureaux pour garantir leur réussite.</p>
-        </div>
-        <div class="avantage-card">
-            <h3>💼 Immersion Professionnelle</h3>
-            <p>Avec notre rythme 3 jours école / 2 jours stage, l'étudiant forge son expérience et son réseau au sein du tissu économique dynamique des Canaries.</p>
-        </div>
-        <div class="avantage-card">
-            <h3>🌍 Bilinguisme & Soft Skills</h3>
-            <p>Vivre à Tenerife, c'est maîtriser l'espagnol naturellement et développer une autonomie précieuse pour les recruteurs. Nous gérons aussi les loisirs et l'intégration.</p>
-        </div>
-        <div class="avantage-card">
-            <h3>🎓 Diplôme & Masterclass</h3>
-            <p>Un cursus reconnu complété par des interventions hebdomadaires d'experts et de chefs d'entreprise pour une vision réelle du marché.</p>
-        </div>
+<section class="avantages-grid">
+    <div class="avantage-card">
+        <h3>🚀 Hors Parcoursup</h3>
+        <p>Pas d'algorithme, pas d'attente. Réponse humaine sous 48h pour sécuriser votre avenir sereinement.</p>
+    </div>
+    <div class="avantage-card">
+        <h3>🏠 Logement Inclus</h3>
+        <p>Colocation en villa ou immersion chez l'habitant. Nous gérons toute la logistique pour vous.</p>
+    </div>
+    <div class="avantage-card">
+        <h3>🤝 Mentorat Quotidien</h3>
+        <p>3 jours d'école avec un coach présentiel et 2 jours en stage rémunéré pour une expérience totale.</p>
+    </div>
+    <div class="avantage-card">
+        <h3>🌊 Cadre de Vie</h3>
+        <p>Devenez bilingue espagnol dans le hub international des Canaries, loin du stress des grandes métropoles.</p>
     </div>
 </section>
 
-<section class="rythme">
-    <div class="rythme-item">
-        <h2>3 JOURS</h2>
-        <p><strong>FOCUS ÉCOLE</strong><br>Travail encadré & Mentorat</p>
+<section class="comparatif">
+    <h2 class="section-title">Le calcul est vite fait</h2>
+    <p style="text-align:center; margin-bottom: 40px;">Comparatif annuel moyen (Formation + Logement + Charges)</p>
+    
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ville d'études</th>
+                    <th>Coût Scolarité</th>
+                    <th>Coût Logement</th>
+                    <th>Total Annuel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Paris / Lyon / Bordeaux</td>
+                    <td>8 500 €</td>
+                    <td>9 600 €</td>
+                    <td class="bad">18 100 €</td>
+                </tr>
+                <tr>
+                    <td>Nantes / Rennes / Marseille</td>
+                    <td>7 500 €</td>
+                    <td>7 800 €</td>
+                    <td class="bad">15 300 €</td>
+                </tr>
+                <tr>
+                    <td>Angers / Le Mans / Tours</td>
+                    <td>7 000 €</td>
+                    <td>6 000 €</td>
+                    <td class="bad">13 000 €</td>
+                </tr>
+                <tr class="highlight-nomad">
+                    <td>TENERIFE (Nomad School)</td>
+                    <td>Inclus</td>
+                    <td>Inclus</td>
+                    <td class="good">15 000 €</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="rythme-item">
-        <h2>2 JOURS</h2>
-        <p><strong>EXPÉRIENCE TERRAIN</strong><br>Immersion en Entreprise</p>
+
+    <div style="margin-top: 40px; padding: 30px; background: var(--primary); color: white; border-radius: 15px; text-align: center;">
+        <p><strong>Bilan :</strong> Pour le prix d'une ville moyenne française, votre enfant bénéficie d'une <strong>école privée</strong>, d'un <strong>logement géré</strong>, d'un <strong>coach sur place</strong> et d'un <strong>cadre international bilingue</strong>.</p>
     </div>
 </section>
 
 <section class="form-section" id="contact">
-    <h2 style="text-align: center; font-family: 'Montserrat';">Recevoir le dossier d'admissibilité</h2>
-    <p style="text-align: center; margin-bottom: 50px;">Un processus simple, humain et bienveillant pour préparer la rentrée 2026.</p>
-    
+    <h2 style="text-align: center; font-family: 'Montserrat';">Sécurisez votre place pour 2026</h2>
     <form>
-        <input type="text" placeholder="Nom et Prénom de l'étudiant(e)" required>
-        <input type="email" placeholder="Email de contact (Parent ou Étudiant)" required>
-        
+        <input type="text" placeholder="Prénom et Nom de l'étudiant(e)" required>
+        <input type="email" placeholder="Email (Parents ou Étudiant)" required>
         <select required>
-            <option value="">Filière de prédilection</option>
+            <option value="">BTS Souhaité</option>
             <option>BTS Tourisme</option>
             <option>BTS Commerce International</option>
             <option>BTS Gestion de la PME</option>
         </select>
-        
-        <textarea rows="4" placeholder="Quels sont vos besoins ? (Logement, question sur le coaching...)"></textarea>
-        
-        <button type="submit" class="submit-btn">Obtenir les informations</button>
+        <textarea rows="4" placeholder="Une question ? (Paiement mensuel, colocation, stages...)"></textarea>
+        <button type="submit" class="submit-btn">Recevoir la brochure comparative</button>
     </form>
 </section>
 
 <footer>
-    <p style="font-size: 1.2rem; font-weight: bold;">NOMAD BUSINESS SCHOOL TENERIFE</p>
-    <p>Calle La Salle, Santa Cruz de Tenerife • 15 000€ / an Tout Inclus</p>
+    <p><strong>NOMAD BUSINESS SCHOOL TENERIFE</strong></p>
+    <p>Calle La Salle, Santa Cruz de Tenerife • 15 000€ / an (Logement & Formation)</p>
 </footer>
 
 </body>
