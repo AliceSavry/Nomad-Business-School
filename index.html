@@ -85,16 +85,30 @@
             box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4); transition: 0.3s;
         }
 
-        /* --- SESSION CARD --- */
-        .sessions-grid {
-            display: flex; justify-content: center; padding: 0 5%; margin-top: -50px; position: relative; z-index: 10;
+        /* --- SESSIONS SECTION --- */
+        .sessions-container {
+            padding: 0 5%;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
         }
-        .session-card-unique {
-            background: white; padding: 30px 60px; border-radius: 20px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 3px solid var(--nbs-gold);
+        .sessions-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .session-card-unique h4 { margin: 0; color: var(--nbs-green); font-family: 'Montserrat'; font-size: 1.5rem; }
-        .session-card-unique span { color: var(--nbs-gold); font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;}
+        .session-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--nbs-gold);
+        }
+        .session-box span { font-size: 0.7rem; font-weight: 900; color: var(--nbs-gold); display: block; margin-bottom: 5px; }
+        .session-box h4 { margin: 0; font-family: 'Montserrat'; font-size: 1.1rem; color: var(--nbs-green); }
 
         /* --- SECTION POURQUOI NOUS FAIRE CONFIANCE --- */
         .trust-section { padding: 100px 5%; background: white; }
@@ -177,12 +191,6 @@
         td { padding: 30px; border-bottom: 1px solid #f4f4f4; font-size: 1.1rem; }
         .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
 
-        /* --- SECTION TÉMOIGNAGES --- */
-        .testimonials { padding: 100px 5%; background: var(--nbs-gray); text-align: center; }
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 50px auto; }
-        .testi-card { background: white; padding: 40px; border-radius: 30px; text-align: left; font-style: italic; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .testi-author { display: block; margin-top: 20px; font-weight: 700; font-style: normal; color: var(--nbs-gold); }
-
         /* --- CONTACT & FORMULAIRE --- */
         .contact-section { padding: 100px 5%; background: white; }
         .form-container { 
@@ -226,19 +234,21 @@
 
 <header>
     <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
-    <div class="campus-label">Premier Campus<br>Lancement Janvier 2027</div>
+    <div class="campus-label">Premier Campus<br>Tenerife 2027</div>
 </header>
 
 <section class="hero">
     <h1>Prépare ton BTS au paradis pour le même prix qu'au Mans.</h1>
     <p>Le bilinguisme ? <span class="highlight">C'est pour nous, c'est cadeau !</span> Profite d'un cursus bilingue et d'un logement sélectionné et cautionné par nos soins sous le soleil de Tenerife.</p>
-    <a href="#contact" class="btn-hero">Je postule pour Janvier 2027</a>
+    <a href="#contact" class="btn-hero">Choisir ma session 2027</a>
 </section>
 
-<section class="sessions-grid">
-    <div class="session-card-unique">
-        <span>INSCRIPTIONS OUVERTES</span>
-        <h4>DÉPART JANVIER 2027</h4>
+<section class="sessions-container">
+    <div class="sessions-row">
+        <div class="session-box"><span>PROCHAINE RENTRÉE</span><h4>Janvier 2027</h4></div>
+        <div class="session-box"><span>SESSION PRINTEMPS</span><h4>Avril 2027</h4></div>
+        <div class="session-box"><span>SESSION ÉTÉ</span><h4>Juillet 2027</h4></div>
+        <div class="session-box"><span>SESSION AUTOMNE</span><h4>Octobre 2027</h4></div>
     </div>
 </section>
 
@@ -252,11 +262,11 @@
                 <div class="card-front">
                     <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🌍</span>
                     <h3>Bilinguisme Natif</h3>
-                    <p>L'immersion totale par la pratique.</p>
+                    <p>L'immersion totale par la pratique réelle.</p>
                 </div>
                 <div class="card-back">
-                    <h3>Stages Internationaux</h3>
-                    <p>Tes stages sont réalisés directement à Tenerife, au sein d'entreprises locales et internationales. Tu travailles en Espagnol et en Anglais : le bilinguisme devient ton outil de travail, c'est offert dans ton cursus.</p>
+                    <h3>Stages sur place</h3>
+                    <p>Tes stages sont réalisés directement à Tenerife. Tu travailles en Espagnol et en Anglais au sein d'entreprises locales et internationales. C'est le meilleur moyen de devenir bilingue "métier".</p>
                 </div>
             </div>
         </div>
@@ -307,7 +317,7 @@
         <div class="step-card">
             <div class="step-num">3</div>
             <h3>Entretien Mentor</h3>
-            <p>Un échange en visioconférence pour valider ton admission au sein de la promotion 2027.</p>
+            <p>Un échange en visioconférence pour valider ton admission au sein de la promotion choisie.</p>
         </div>
     </div>
 </section>
@@ -325,7 +335,7 @@
         <div class="price-item">
             <h3>Frais de Logement</h3>
             <span class="price-value">6 000,00 €</span>
-            <p class="price-detail">Ton logement sélectionné et cautionné par l'école (charges incluses).</p>
+            <p class="price-detail">Logement sélectionné et cautionné par l'école (charges incluses).</p>
         </div>
         <div class="price-item">
             <h3>Frais de Vie Campus</h3>
@@ -335,7 +345,7 @@
     </div>
 
     <div class="total-banner">
-        <div class="total-box"><p>Total Annuel</p><h2>15 000 €</h2></div>
+        <div class="total-box"><p>Investissement Annuel</p><h2>15 000 €</h2></div>
         <div style="font-size: 3rem; color: var(--nbs-gold);">➜</div>
         <div class="total-box"><p>Lissage Mensuel</p><h2>1 250 €</h2></div>
     </div>
@@ -359,20 +369,6 @@
     </div>
 </section>
 
-<section class="testimonials">
-    <h2 class="section-title">Ce qu'ils en disent</h2>
-    <div class="testimonial-grid">
-        <div class="testi-card">
-            "Le fait que l'école cautionne le logement a été l'argument décisif pour mes parents. Je pars sereine en janvier."
-            <span class="testi-author">— Julie, Future étudiante BTS 2027</span>
-        </div>
-        <div class="testi-card">
-            "Étudier en bilingue pour le prix d'une école classique en France, c'est une opportunité que je ne pouvais pas rater."
-            <span class="testi-author">— Marc, Candidat Promotion Fondatrice</span>
-        </div>
-    </div>
-</section>
-
 <section id="contact" class="contact-section">
     <div class="form-container">
         <h2>Dossier d'Admission 2027</h2>
@@ -381,9 +377,13 @@
             <input type="email" placeholder="Adresse Email" required>
             <input type="tel" placeholder="Téléphone">
             <select required>
-                <option value="janvier2027">Promotion Fondatrice : Janvier 2027</option>
+                <option value="" disabled selected>Choisis ta session de rentrée</option>
+                <option value="janvier2027">Janvier 2027</option>
+                <option value="avril2027">Avril 2027</option>
+                <option value="juillet2027">Juillet 2027</option>
+                <option value="octobre2027">Octobre 2027</option>
             </select>
-            <textarea placeholder="Parle-nous de ton projet en quelques mots..." rows="4"></textarea>
+            <textarea placeholder="Pourquoi souhaites-tu rejoindre Nomad Business School ?" rows="4"></textarea>
             <button type="submit" class="btn-submit">Recevoir mon dossier</button>
         </form>
     </div>
