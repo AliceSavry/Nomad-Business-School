@@ -177,10 +177,10 @@
         td { padding: 30px; border-bottom: 1px solid #f4f4f4; font-size: 1.1rem; }
         .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
 
-        /* --- SECTION TÉMOIGNAGES (Placeholder) --- */
+        /* --- SECTION TÉMOIGNAGES --- */
         .testimonials { padding: 100px 5%; background: var(--nbs-gray); text-align: center; }
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 50px auto; }
-        .testi-card { background: white; padding: 40px; border-radius: 30px; text-align: left; font-style: italic; }
+        .testi-card { background: white; padding: 40px; border-radius: 30px; text-align: left; font-style: italic; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
         .testi-author { display: block; margin-top: 20px; font-weight: 700; font-style: normal; color: var(--nbs-gold); }
 
         /* --- CONTACT & FORMULAIRE --- */
@@ -215,7 +215,7 @@
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .total-banner { flex-direction: column; text-align: center; }
-            .hero h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
             .form-container { padding: 40px 20px; }
         }
     </style>
@@ -252,11 +252,11 @@
                 <div class="card-front">
                     <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🌍</span>
                     <h3>Bilinguisme Natif</h3>
-                    <p>Le bonus qui change tout sur un CV.</p>
+                    <p>L'immersion totale par la pratique.</p>
                 </div>
                 <div class="card-back">
-                    <h3>Immersion Totale</h3>
-                    <p>En vivant sur un campus international, l'anglais et l'espagnol deviennent tes outils quotidiens. C'est l'atout majeur de Nomad Business School : le bilinguisme est inclus.</p>
+                    <h3>Stages Internationaux</h3>
+                    <p>Tes stages sont réalisés directement à Tenerife, au sein d'entreprises locales et internationales. Tu travailles en Espagnol et en Anglais : le bilinguisme devient ton outil de travail, c'est offert dans ton cursus.</p>
                 </div>
             </div>
         </div>
@@ -293,7 +293,6 @@
 
 <section class="admissions">
     <h2 class="section-title">Conditions d'Admission</h2>
-    <p class="section-subtitle">Nous recherchons des profils motivés par l'aventure et l'excellence.</p>
     <div class="step-grid">
         <div class="step-card">
             <div class="step-num">1</div>
@@ -303,7 +302,7 @@
         <div class="step-card">
             <div class="step-num">2</div>
             <h3>Dossier de Motivation</h3>
-            <p>Nous analysons ton projet professionnel et ton envie d'apprendre dans un cadre international.</p>
+            <p>Analyse de ton projet professionnel et ton envie d'apprendre dans un cadre international.</p>
         </div>
         <div class="step-card">
             <div class="step-num">3</div>
@@ -326,7 +325,7 @@
         <div class="price-item">
             <h3>Frais de Logement</h3>
             <span class="price-value">6 000,00 €</span>
-            <p class="price-detail">Ton logement en colocation sélectionnée et cautionnée par l'école (charges incluses).</p>
+            <p class="price-detail">Ton logement sélectionné et cautionné par l'école (charges incluses).</p>
         </div>
         <div class="price-item">
             <h3>Frais de Vie Campus</h3>
@@ -336,7 +335,7 @@
     </div>
 
     <div class="total-banner">
-        <div class="total-box"><p>Total Investissement Annuel</p><h2>15 000 €</h2></div>
+        <div class="total-box"><p>Total Annuel</p><h2>15 000 €</h2></div>
         <div style="font-size: 3rem; color: var(--nbs-gold);">➜</div>
         <div class="total-box"><p>Lissage Mensuel</p><h2>1 250 €</h2></div>
     </div>
@@ -399,7 +398,6 @@
 </footer>
 
 <script>
-    // Simple script pour gérer l'effet Flip au clic sur mobile
     function toggleFlip(card) {
         card.classList.toggle('flipped');
     }
