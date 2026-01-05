@@ -20,6 +20,7 @@
             margin: 0;
             background: white;
             color: var(--nbs-dark);
+            scroll-behavior: smooth;
         }
 
         .top-bar {
@@ -29,6 +30,9 @@
             padding: 10px;
             font-weight: 600;
             font-size: 0.85rem;
+            position: sticky;
+            top: 0;
+            z-index: 1001;
         }
 
         header {
@@ -39,24 +43,16 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 0;
+            top: 38px;
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             height: 80px;
         }
 
-        /* Correction ici : alignement et taille */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-
         .logo-img {
-            height: 65px; /* Ajusté selon tes captures */
+            height: 65px;
             width: auto;
             display: block;
-            object-fit: contain;
         }
 
         .campus-label {
@@ -69,8 +65,9 @@
             text-transform: uppercase;
         }
 
+        /* --- HERO --- */
         .hero {
-            height: 70vh;
+            height: 75vh;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
@@ -83,156 +80,139 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: 3.5rem; font-weight: 900; margin: 0; }
-        .hero p { font-size: 1.2rem; margin: 15px 0 30px; opacity: 0.9; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 3.5rem; font-weight: 900; margin: 0; line-height: 1.1; }
+        .hero p { font-size: 1.3rem; margin: 20px 0 35px; font-weight: 300; max-width: 700px; }
 
         .btn-hero {
             background: var(--nbs-gold);
             color: white;
-            padding: 20px 45px;
+            padding: 22px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 10px 20px rgba(217, 146, 43, 0.4);
+            box-shadow: 0 10px 25px rgba(217, 146, 43, 0.4);
+            transition: transform 0.3s;
+        }
+        .btn-hero:hover { transform: scale(1.05); }
+
+        /* --- SESSIONS TAGS --- */
+        .session-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            margin-bottom: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(255,255,255,0.3);
         }
 
-        /* --- SECTIONS --- */
-        .section-title {
-            text-align: center;
-            font-family: 'Montserrat';
-            font-size: 2rem;
-            margin: 60px 0 40px;
-            color: var(--nbs-green);
-        }
-
-        .grid {
+        /* --- MASTERCLASS SECTION --- */
+        .masterclass-section { padding: 100px 5%; background: var(--nbs-gray); text-align: center; }
+        .masterclass-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 5% 80px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
         }
-
-        .card {
+        .mc-card {
             background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-            text-align: center;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: left;
+            border-left: 5px solid var(--nbs-blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-
-        .card h3 { color: var(--nbs-blue); font-family: 'Montserrat'; }
-
-        /* --- TABLEAU --- */
-        .comparatif { padding: 40px 5% 80px; }
-        .table-wrapper { 
-            background: white; 
-            border-radius: 30px; 
-            overflow: hidden; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-        table { width: 100%; border-collapse: collapse; }
-        th { background: var(--nbs-gray); padding: 20px; text-align: left; font-size: 0.8rem; color: #888; }
-        td { padding: 20px; border-bottom: 1px solid #eee; }
-        .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
+        .mc-card h4 { color: var(--nbs-green); margin-bottom: 10px; font-family: 'Montserrat'; }
 
         /* --- FORMULAIRE --- */
-        .contact-section { background: var(--nbs-gray); padding: 80px 20px; text-align: center; }
-        .form-container { max-width: 450px; margin: 0 auto; background: white; padding: 40px; border-radius: 30px; }
+        .contact-section { padding: 100px 20px; text-align: center; }
+        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        
         input, select { 
-            width: 100%; padding: 18px; margin-bottom: 15px; 
-            border: 2px solid #eee; border-radius: 15px; 
-            font-size: 1rem; box-sizing: border-box;
+            width: 100%; padding: 20px; margin-bottom: 15px; 
+            border: 2px solid #f0f0f0; border-radius: 15px; 
+            font-size: 1rem; box-sizing: border-box; font-family: inherit;
         }
         .btn-submit { 
             width: 100%; background: var(--nbs-blue); color: white; 
-            border: none; padding: 20px; border-radius: 15px; 
-            font-weight: 700; cursor: pointer;
+            border: none; padding: 22px; border-radius: 15px; 
+            font-weight: 700; font-size: 1.1rem; cursor: pointer;
         }
 
-        footer { background: #1a1a1a; color: white; padding: 60px; text-align: center; }
-        .footer-logo { height: 40px; filter: brightness(0) invert(1); margin-bottom: 20px; }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            header { height: 70px; }
-            .logo-img { height: 50px; }
-        }
+        footer { background: #111; color: white; padding: 80px 20px; text-align: center; }
+        .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; margin-bottom: 10px; display: block; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ RENTRÉE 2026 : Formation + Logement à Tenerife pour 1 125 € / mois Tout Inclus</div>
+<div class="top-bar">🌴 LIBERTÉ : Inscriptions ouvertes toute l'année (CNED) • Départ au prochain trimestre</div>
 
 <header>
     <div class="logo-container">
         <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
     </div>
-    <div class="campus-label">Campus Exclusif<br>Tenerife</div>
+    <div class="campus-label">Sessions de départ<br>Janvier • Avril • Juillet • Octobre</div>
 </header>
 
 <section class="hero">
-    <h1>Étudiez. Voyagez. Réussissez.</h1>
-    <p>L'excellence académique sous le soleil des Canaries.</p>
-    <a href="#contact" class="btn-hero">Déposer un dossier 2026</a>
+    <div class="session-badge">Prochaine session : Avril 2026</div>
+    <h1>Libérez vos études.</h1>
+    <p>BTS Nomad : La flexibilité du CNED alliée à la puissance de nos Masterclass en immersion à Tenerife.</p>
+    <a href="#contact" class="btn-hero">Réserver mon entretien</a>
 </section>
 
-<h2 class="section-title">Pourquoi nous choisir ?</h2>
-<section class="grid">
-    <div class="card">
-        <h3>🏠 Logement Inclus</h3>
-        <p>Une colocation premium vous attend déjà à votre arrivée.</p>
-    </div>
-    <div class="card">
-        <h3>🎓 Mentorat Pro</h3>
-        <p>Un suivi quotidien pour garantir l'obtention de votre BTS.</p>
-    </div>
-    <div class="card">
-        <h3>🌊 Cadre Unique</h3>
-        <p>Le mix parfait entre rigueur académique et qualité de vie.</p>
-    </div>
-</section>
-
-<section class="comparatif">
-    <h2 class="section-title">Le comparatif réel</h2>
-    <div class="table-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Ville</th>
-                    <th>Formation</th>
-                    <th>Vie/Logis</th>
-                    <th>Total / an</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Paris / Lyon</td><td>8 500€</td><td>11 400€</td><td style="color:red">19 900€</td></tr>
-                <tr class="row-accent"><td>TENERIFE (Nomad)</td><td colspan="2">PACK TOUT INCLUS</td><td>13 500€</td></tr>
-            </tbody>
-        </table>
+<section class="masterclass-section">
+    <h2 style="font-family:'Montserrat'; font-size: 2.2rem;">Les Masterclass Trimestrielles</h2>
+    <p>Chaque trimestre, un nouveau pilier de compétences avec des experts du terrain.</p>
+    
+    <div class="masterclass-grid">
+        <div class="mc-card">
+            <h4>🚀 Growth & Marketing</h4>
+            <p>Apprenez à propulser un business avec l'IA et les derniers outils digitaux.</p>
+        </div>
+        <div class="mc-card">
+            <h4>💼 Sales & Nego</h4>
+            <p>Maîtrisez l'art de convaincre et de vendre dans un contexte international.</p>
+        </div>
+        <div class="mc-card">
+            <h4>🌍 Nomad Mindset</h4>
+            <p>Gestion du temps, productivité à distance et entrepreneuriat international.</p>
+        </div>
     </div>
 </section>
 
 <section id="contact" class="contact-section">
     <div class="form-container">
-        <h2 style="margin-top:0">Candidature 2026</h2>
+        <h2 style="font-family:'Montserrat'; margin-top:0;">Prêt pour le départ ?</h2>
+        <p>Choisissez votre période de départ idéale :</p>
         <form>
-            <input type="text" placeholder="Prénom et Nom" required>
+            <input type="text" placeholder="Nom et Prénom" required>
             <input type="email" placeholder="Email" required>
+            
             <select required>
-                <option value="">Filière BTS souhaitée</option>
+                <option value="">Trimestre de départ souhaité</option>
+                <option>Session Avril 2026</option>
+                <option>Session Juillet 2026</option>
+                <option>Session Octobre 2026</option>
+                <option>Session Janvier 2027</option>
+            </select>
+
+            <select required>
+                <option value="">Filière BTS</option>
                 <option>BTS Tourisme</option>
                 <option>BTS Commerce International</option>
                 <option>BTS Gestion de la PME</option>
             </select>
-            <button type="submit" class="btn-submit">Recevoir mon dossier</button>
+            
+            <button type="submit" class="btn-submit">Recevoir la brochure & Tarifs</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <img src="Logo NBS.jpg" alt="Nomad Business School" class="footer-logo">
-    <p>© 2026 Campus Tenerife.<br>L'excellence académique sans frontières.</p>
+    <span class="footer-logo-text">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
+    <p>© 2026 Campus Tenerife.<br>Inscriptions via CNED • Accompagnement NBS.</p>
 </footer>
 
 </body>
