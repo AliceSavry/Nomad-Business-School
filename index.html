@@ -12,7 +12,7 @@
             --nbs-gold: #d9922b;    
             --nbs-dark: #1d1d1f;
             --nbs-gray: #f5f5f7;
-            --glass: rgba(255, 255, 255, 0.95);
+            --glass: rgba(255, 255, 255, 0.98);
         }
 
         body {
@@ -27,7 +27,7 @@
             background: var(--nbs-green);
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             font-weight: 600;
             font-size: 0.85rem;
             position: sticky;
@@ -43,7 +43,7 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 38px;
+            top: 41px;
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
             height: 80px;
@@ -65,10 +65,9 @@
             text-transform: uppercase;
         }
 
-        /* --- HERO --- */
         .hero {
-            height: 75vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Tenerife1.jpeg');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -80,139 +79,121 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: 3.5rem; font-weight: 900; margin: 0; line-height: 1.1; }
-        .hero p { font-size: 1.3rem; margin: 20px 0 35px; font-weight: 300; max-width: 700px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 3.8rem; font-weight: 900; margin: 0; }
+        .hero p { font-size: 1.4rem; margin: 25px 0 40px; max-width: 800px; }
 
         .btn-hero {
             background: var(--nbs-gold);
             color: white;
-            padding: 22px 50px;
+            padding: 22px 55px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(217, 146, 43, 0.4);
-            transition: transform 0.3s;
-        }
-        .btn-hero:hover { transform: scale(1.05); }
-
-        /* --- SESSIONS TAGS --- */
-        .session-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 8px 20px;
-            border-radius: 20px;
-            backdrop-filter: blur(5px);
-            margin-bottom: 20px;
-            font-weight: 600;
-            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4);
         }
 
-        /* --- MASTERCLASS SECTION --- */
-        .masterclass-section { padding: 100px 5%; background: var(--nbs-gray); text-align: center; }
-        .masterclass-grid {
+        .edu-section { padding: 100px 5%; text-align: center; }
+        .edu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
-        .mc-card {
-            background: white;
-            padding: 30px;
-            border-radius: 25px;
-            text-align: left;
-            border-left: 5px solid var(--nbs-blue);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .edu-card {
+            padding: 40px;
+            border-radius: 30px;
+            background: var(--nbs-gray);
         }
-        .mc-card h4 { color: var(--nbs-green); margin-bottom: 10px; font-family: 'Montserrat'; }
+        .edu-card h3 { color: var(--nbs-blue); font-family: 'Montserrat'; font-size: 1.4rem; margin-bottom: 20px; }
 
-        /* --- FORMULAIRE --- */
-        .contact-section { padding: 100px 20px; text-align: center; }
-        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); border: 1px solid #eee; }
+        .contact-section { padding: 100px 20px; background: var(--nbs-blue); color: white; }
+        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 45px; border-radius: 40px; color: var(--nbs-dark); }
         
         input, select { 
-            width: 100%; padding: 20px; margin-bottom: 15px; 
-            border: 2px solid #f0f0f0; border-radius: 15px; 
-            font-size: 1rem; box-sizing: border-box; font-family: inherit;
+            width: 100%; padding: 20px; margin-bottom: 18px; 
+            border: 2px solid #eee; border-radius: 18px; 
+            font-size: 1rem; box-sizing: border-box;
         }
         .btn-submit { 
-            width: 100%; background: var(--nbs-blue); color: white; 
-            border: none; padding: 22px; border-radius: 15px; 
-            font-weight: 700; font-size: 1.1rem; cursor: pointer;
+            width: 100%; background: var(--nbs-green); color: white; 
+            border: none; padding: 22px; border-radius: 18px; 
+            font-weight: 700; cursor: pointer;
         }
 
-        footer { background: #111; color: white; padding: 80px 20px; text-align: center; }
-        .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.5rem; letter-spacing: -1px; margin-bottom: 10px; display: block; }
+        footer { background: #111; color: white; padding: 60px 20px; text-align: center; }
+        .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.8rem; margin-bottom: 15px; display: block; }
+        
+        /* Style pour la mention légale en bas */
+        .legal-note {
+            font-size: 0.75rem;
+            color: #888;
+            max-width: 600px;
+            margin: 40px auto 0;
+            line-height: 1.4;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
 
-<div class="top-bar">🌴 LIBERTÉ : Inscriptions ouvertes toute l'année (CNED) • Départ au prochain trimestre</div>
+<div class="top-bar">🎓 ACADÉMIE PRO : Sessions trimestrielles • Apprentissage par projets réels à Tenerife</div>
 
 <header>
     <div class="logo-container">
         <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
     </div>
-    <div class="campus-label">Sessions de départ<br>Janvier • Avril • Juillet • Octobre</div>
+    <div class="campus-label">Prochaines Intégrations<br>Avril • Juillet • Octobre • Janvier</div>
 </header>
 
 <section class="hero">
-    <div class="session-badge">Prochaine session : Avril 2026</div>
-    <h1>Libérez vos études.</h1>
-    <p>BTS Nomad : La flexibilité du CNED alliée à la puissance de nos Masterclass en immersion à Tenerife.</p>
-    <a href="#contact" class="btn-hero">Réserver mon entretien</a>
+    <h1>L'école qui vit.</h1>
+    <p>Un cursus 100% orienté résultats, propulsé par notre Programme Professionnel Exclusif*.</p>
+    <a href="#contact" class="btn-hero">Postuler pour le prochain trimestre</a>
 </section>
 
-<section class="masterclass-section">
-    <h2 style="font-family:'Montserrat'; font-size: 2.2rem;">Les Masterclass Trimestrielles</h2>
-    <p>Chaque trimestre, un nouveau pilier de compétences avec des experts du terrain.</p>
-    
-    <div class="masterclass-grid">
-        <div class="mc-card">
-            <h4>🚀 Growth & Marketing</h4>
-            <p>Apprenez à propulser un business avec l'IA et les derniers outils digitaux.</p>
+<section class="edu-section">
+    <h2 style="font-family:'Montserrat'; font-size: 2.5rem;">Pédagogie Native</h2>
+    <div class="edu-grid">
+        <div class="edu-card">
+            <h3>📂 Ressources NBS*</h3>
+            <p>Accédez à notre bibliothèque de ressources propriétaires : études de cas, outils de pilotage et modules de spécialisation pro.</p>
         </div>
-        <div class="mc-card">
-            <h4>💼 Sales & Nego</h4>
-            <p>Maîtrisez l'art de convaincre et de vendre dans un contexte international.</p>
+        <div class="edu-card">
+            <h3>📅 Sessions Flex</h3>
+            <p>Un rythme trimestriel qui s'adapte à votre vitesse d'apprentissage et à vos projets d'entrepreneuriat.</p>
         </div>
-        <div class="mc-card">
-            <h4>🌍 Nomad Mindset</h4>
-            <p>Gestion du temps, productivité à distance et entrepreneuriat international.</p>
+        <div class="edu-card">
+            <h3>🤝 Masterclass</h3>
+            <p>Chaque semaine, des experts du monde entier partagent leurs secrets lors de sessions en direct sur le campus.</p>
         </div>
     </div>
 </section>
 
 <section id="contact" class="contact-section">
     <div class="form-container">
-        <h2 style="font-family:'Montserrat'; margin-top:0;">Prêt pour le départ ?</h2>
-        <p>Choisissez votre période de départ idéale :</p>
+        <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Candidature</h2>
         <form>
             <input type="text" placeholder="Nom et Prénom" required>
             <input type="email" placeholder="Email" required>
-            
             <select required>
-                <option value="">Trimestre de départ souhaité</option>
-                <option>Session Avril 2026</option>
-                <option>Session Juillet 2026</option>
-                <option>Session Octobre 2026</option>
-                <option>Session Janvier 2027</option>
+                <option value="">Trimestre souhaité</option>
+                <option>Avril 2026</option>
+                <option>Juillet 2026</option>
+                <option>Octobre 2026</option>
+                <option>Janvier 2027</option>
             </select>
-
-            <select required>
-                <option value="">Filière BTS</option>
-                <option>BTS Tourisme</option>
-                <option>BTS Commerce International</option>
-                <option>BTS Gestion de la PME</option>
-            </select>
-            
-            <button type="submit" class="btn-submit">Recevoir la brochure & Tarifs</button>
+            <button type="submit" class="btn-submit">Demander les accès candidat</button>
         </form>
     </div>
 </section>
 
 <footer>
     <span class="footer-logo-text">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
-    <p>© 2026 Campus Tenerife.<br>Inscriptions via CNED • Accompagnement NBS.</p>
+    <p>© 2026 Campus Tenerife.</p>
+    
+    <div class="legal-note">
+        * Les Ressources Pédagogiques NBS et le Programme Professionnel Exclusif sont actuellement en cours de rédaction finale. Afin de garantir une qualité académique irréprochable, les supports sont temporairement assurés par un prestataire national français reconnu jusqu'à la validation complète de nos propres modules.
+    </div>
 </footer>
 
 </body>
