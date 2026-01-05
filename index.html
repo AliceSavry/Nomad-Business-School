@@ -7,55 +7,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --apple-blue: #0071e3;
-            --apple-dark: #1d1d1f;
-            --apple-gray: #f5f5f7;
-            --nomad-deep: #0a2e52;
-            --glass: rgba(255, 255, 255, 0.85);
+            /* Couleurs extraites du nouveau Logo NBS */
+            --nbs-blue: #328b9a;    /* Bleu pétrole du texte */
+            --nbs-green: #2d6a3e;   /* Vert forêt de la base du Teide */
+            --nbs-gold: #d9922b;    /* Ocre solaire du sommet */
+            --nbs-dark: #1d1d1f;
+            --nbs-gray: #f5f5f7;
+            --glass: rgba(255, 255, 255, 0.9);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Poppins', -apple-system, sans-serif;
             margin: 0;
             background: white;
-            color: var(--apple-dark);
+            color: var(--nbs-dark);
             -webkit-font-smoothing: antialiased;
         }
 
         /* --- TOP BAR --- */
         .top-bar {
-            background: #27ae60;
+            background: var(--nbs-green);
             color: white;
             text-align: center;
-            padding: 8px 10px;
+            padding: 10px;
             font-weight: 600;
             position: sticky;
             top: 0;
             z-index: 1001;
             font-size: 0.85rem;
-            width: 100%;
-            box-sizing: border-box;
         }
 
         header {
             background: var(--glass);
             backdrop-filter: blur(20px);
-            padding: 12px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 36px;
+            top: 38px;
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
+            height: 70px;
         }
 
-        .logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.1rem; letter-spacing: -1px; }
+        .logo-img {
+            height: 60px; /* Taille optimisée pour le header */
+            width: auto;
+        }
+
+        .campus-label {
+            font-family: 'Montserrat';
+            font-size: 0.7rem;
+            font-weight: 900;
+            color: var(--nbs-gold);
+            text-align: right;
+            line-height: 1.2;
+        }
 
         /* --- HERO --- */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('Tenerife1.jpeg');
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -67,43 +80,47 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 3.2rem; font-weight: 900; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; font-weight: 300; margin-bottom: 25px; }
 
-        /* --- FLIP CARDS ENGINE --- */
+        .btn-hero {
+            background: var(--nbs-gold);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 20px rgba(217, 146, 43, 0.3);
+        }
+
+        /* --- FLIP CARDS --- */
         .flip-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 60px 5%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 5%;
         }
 
         .flip-card {
-            background-color: transparent;
-            height: 280px;
+            height: 300px;
             perspective: 1000px;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent; /* Supprime le flash bleu au clic sur mobile */
+            -webkit-tap-highlight-color: transparent;
         }
 
         .flip-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            text-align: center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
         }
 
-        /* Le retournement se fait via la classe .flipped (clic) OU le hover (PC) */
-        .flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        /* Survol uniquement pour les appareils avec souris */
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        
         @media (hover: hover) {
-            .flip-card:hover .flip-card-inner {
-                transform: rotateY(180deg);
-            }
+            .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
         }
 
         .card-front, .card-back {
@@ -112,142 +129,166 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 24px;
+            border-radius: 30px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            padding: 30px;
+            padding: 40px;
             box-sizing: border-box;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #e5e5e7;
         }
 
-        .card-front { background-color: #fff; color: var(--apple-dark); }
-        .card-back { background-color: var(--nomad-deep); color: white; transform: rotateY(180deg); }
+        .card-front { 
+            background: white; 
+            border: 1px solid #eee;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+        
+        /* Alternance de couleurs pour le dos des cartes façon NBS */
+        .flip-card:nth-child(1) .card-back { background: var(--nbs-blue); color: white; }
+        .flip-card:nth-child(2) .card-back { background: var(--nbs-green); color: white; }
+        .flip-card:nth-child(3) .card-back { background: var(--nbs-gold); color: white; }
 
-        .card-front h3 { font-family: 'Montserrat'; font-size: 1.3rem; margin-bottom: 10px; }
-        .card-back p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
-        .tap-hint { font-size: 0.7rem; color: #86868b; margin-top: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .card-back { transform: rotateY(180deg); }
+        .card-front h3 { font-family: 'Montserrat'; color: var(--nbs-blue); font-size: 1.4rem; }
+        .tap-hint { font-size: 0.7rem; color: #aaa; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
 
         /* --- ADMISSION --- */
-        .admission { background: var(--apple-gray); padding: 60px 5%; text-align: center; }
-        .admission .card-back { background-color: var(--apple-blue); }
+        .admission { background: var(--nbs-gray); padding: 80px 5%; text-align: center; }
+        .admission h2 { font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; color: var(--nbs-green); }
 
-        /* --- COMPARATIF --- */
-        .comparatif { padding: 60px 5%; overflow-x: auto; }
-        .table-wrapper { background: var(--apple-gray); border-radius: 25px; padding: 20px; min-width: 700px; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 15px; overflow: hidden; }
-        th { background: #f9f9f9; padding: 15px; text-align: left; font-size: 0.75rem; color: #86868b; text-transform: uppercase; }
-        td { padding: 18px 15px; border-bottom: 1px solid #eee; font-size: 0.9rem; }
-        .row-accent { background: var(--nomad-deep); color: white; font-weight: 700; }
+        /* --- TABLEAU --- */
+        .comparatif { padding: 80px 5%; }
+        .table-wrapper { 
+            background: white; 
+            border-radius: 30px; 
+            padding: 10px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { padding: 20px; text-align: left; font-size: 0.8rem; color: #888; text-transform: uppercase; border-bottom: 2px solid var(--nbs-gray); }
+        td { padding: 20px; border-bottom: 1px solid var(--nbs-gray); }
+        .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
 
         /* --- FORMULAIRE --- */
-        .form-section { padding: 80px 20px; text-align: center; }
-        .form-container { max-width: 400px; margin: 0 auto; }
-        input, select { width: 100%; box-sizing: border-box; padding: 18px; margin-bottom: 12px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 16px; }
-        .btn-submit { width: 100%; background: var(--apple-blue); color: white; border: none; padding: 20px; border-radius: 12px; font-weight: 700; cursor: pointer; }
+        .form-section { padding: 100px 20px; background: white; text-align: center; }
+        .form-container { max-width: 450px; margin: 0 auto; }
+        input, select { 
+            width: 100%; padding: 20px; margin-bottom: 15px; 
+            border: 2px solid var(--nbs-gray); border-radius: 15px; 
+            font-size: 1rem; transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        input:focus { border-color: var(--nbs-blue); outline: none; }
+        .btn-submit { 
+            width: 100%; background: var(--nbs-green); color: white; 
+            border: none; padding: 22px; border-radius: 15px; 
+            font-weight: 700; font-size: 1.1rem; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(45, 106, 62, 0.2);
+        }
+
+        footer { background: #1a1a1a; color: white; padding: 60px 20px; text-align: center; font-size: 0.9rem; }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .top-bar { font-size: 0.7rem; }
-            .flip-card { height: 320px; }
+            .hero h1 { font-size: 2.4rem; }
+            header { padding: 5px 4%; }
+            .logo-img { height: 45px; }
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ RENTRÉE 2026 : Formation + Logement pour 1 125 € / mois Tout Inclus</div>
+<div class="top-bar">☀️ RENTRÉE 2026 : Formation + Logement à Tenerife pour 1 125 € / mois Tout Inclus</div>
 
 <header>
-    <div class="logo-text">NOMAD <span style="color:var(--apple-blue)">BUSINESS SCHOOL</span></div>
-    <div style="font-size: 0.7rem; font-weight: 700; color: #666; text-align: right;">CAMPUS<br>TENERIFE</div>
+    <img src="Logo NBS.jpeg" alt="Nomad Business School Logo" class="logo-img">
+    <div class="campus-label">CAMPUS EXCLUSIF<br>TENERIFE</div>
 </header>
 
 <section class="hero">
     <h1>Étudiez. Voyagez. Réussissez.</h1>
-    <p>Le seul programme de BTS en immersion totale aux Canaries.</p>
-    <a href="#contact" style="background:white; color:black; padding: 15px 35px; border-radius:30px; text-decoration:none; font-weight:700;">Postuler pour 2026</a>
+    <p>L'excellence académique sous le soleil des Canaries.</p>
+    <a href="#contact" class="btn-hero">Déposer un dossier 2026</a>
 </section>
 
 <section class="flip-grid">
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
-                <h3>🏠 Logement Garanti</h3>
-                <span class="tap-hint">Cliquez pour voir</span>
+                <h3>🏠 Logement Inclus</h3>
+                <p>La sérénité d'une colocation premium déjà prête.</p>
+                <span class="tap-hint">Cliquer pour découvrir</span>
             </div>
             <div class="card-back">
-                <p>Le toit est inclus. Votre enfant dispose d'une place en <strong>colocation sélectionnée</strong> toute l'année, sans frais de dossier ni garant complexe.</p>
-                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                <p>Oubliez la galère des garants et des visites. Vous emménagez dans une colocation NBS sélectionnée dès votre arrivée.</p>
+                <span class="tap-hint" style="color:rgba(255,255,255,0.6)">Retourner</span>
             </div>
         </div>
     </div>
+
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
-                <h3>🤝 Mentorat Elite</h3>
-                <span class="tap-hint">Cliquez pour voir</span>
+                <h3>🎓 Mentorat Pro</h3>
+                <p>Un encadrement quotidien pour décrocher votre BTS.</p>
+                <span class="tap-hint">Cliquer pour découvrir</span>
             </div>
             <div class="card-back">
-                <p>Un mentor est accessible <strong>tous les jours</strong> pour encadrer les études et assurer la réussite du BTS. Un suivi humain pour ne jamais rester bloqué.</p>
-                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                <p>Plus qu'un cours, un suivi humain. Nos mentors vous accompagnent chaque jour pour transformer votre potentiel en diplôme.</p>
+                <span class="tap-hint" style="color:rgba(255,255,255,0.6)">Retourner</span>
             </div>
         </div>
     </div>
+
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
-                <h3>🏄‍♂️ Immersion & Loisirs</h3>
-                <span class="tap-hint">Cliquez pour voir</span>
+                <h3>🌊 Vie de Campus</h3>
+                <p>Équilibre parfait entre études et activités outdoor.</p>
+                <span class="tap-hint">Cliquer pour découvrir</span>
             </div>
             <div class="card-back">
-                <p>Activités sportives et culturelles hebdomadaires pour favoriser l'intégration et le bilinguisme au sein d'une communauté soudée.</p>
-                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                <p>Surf, randonnées au Teide, networking international. Apprenez le business là où le monde vient se ressourcer.</p>
+                <span class="tap-hint" style="color:rgba(255,255,255,0.6)">Retourner</span>
             </div>
         </div>
     </div>
 </section>
 
 <section class="admission">
-    <h2 style="font-family: 'Montserrat'; font-size: 2rem; margin-bottom: 20px;">Critères d'admissibilité</h2>
-    <div class="flip-grid" style="padding-top: 20px;">
+    <h2>Critères de sélection</h2>
+    <p>Nous recherchons des profils motivés, curieux et prêts pour l'aventure internationale.</p>
+    <div class="flip-grid" style="padding-top:20px;">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">01</span>
-                    <h3>Niveau Bac</h3>
-                    <span class="tap-hint">Voir détails</span>
+                    <h1 style="color:var(--nbs-blue); margin:0;">01</h1>
+                    <h3>Baccalauréat</h3>
                 </div>
                 <div class="card-back">
-                    <p>Être titulaire d'un Baccalauréat ou équivalent (Niveau 4).</p>
-                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                    <p>Ouvert à toutes les filières. Ce qui compte, c'est votre capacité de travail.</p>
                 </div>
             </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">02</span>
-                    <h3>Tests d'entrée</h3>
-                    <span class="tap-hint">Voir détails</span>
+                    <h1 style="color:var(--nbs-green); margin:0;">02</h1>
+                    <h3>Dossier & Test</h3>
                 </div>
                 <div class="card-back">
-                    <p>Culture générale et étude approfondie des bulletins scolaires pour évaluer le sérieux du candidat.</p>
-                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                    <p>Analyse des bulletins et tests de logique/culture générale Nomad.</p>
                 </div>
             </div>
         </div>
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">03</span>
-                    <h3>Entretien Oral</h3>
-                    <span class="tap-hint">Voir détails</span>
+                    <h1 style="color:var(--nbs-gold); margin:0;">03</h1>
+                    <h3>Entretien</h3>
                 </div>
                 <div class="card-back">
-                    <p>Échange de 30 min pour valider la motivation et le projet professionnel avec nos coachs.</p>
-                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
+                    <p>30 minutes pour nous convaincre de votre projet professionnel.</p>
                 </div>
             </div>
         </div>
@@ -255,45 +296,34 @@
 </section>
 
 <section class="comparatif">
-    <h2 style="text-align:center; font-family:'Montserrat'; margin-bottom:30px;">Le Comparatif Réel</h2>
+    <h2 style="text-align:center; font-family:'Montserrat';">L'Investissement Malin</h2>
     <div class="table-wrapper">
         <table>
             <thead>
                 <tr>
-                    <th>Type de ville</th>
-                    <th>Exemples</th>
+                    <th>Localisation</th>
                     <th>Formation</th>
-                    <th>Vie/Logis</th>
-                    <th>Total/an</th>
+                    <th>Logement/Vie</th>
+                    <th>Total Annuel</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Grandes Métropoles</td>
-                    <td>Paris, Bordeaux, Marseille</td>
+                    <td>Paris / Lyon</td>
                     <td>8 500€</td>
                     <td>11 400€</td>
-                    <td style="color:red; font-weight:700;">19 900€</td>
+                    <td style="color:#e74c3c; font-weight:700;">19 900€</td>
                 </tr>
                 <tr>
-                    <td>Villes Moyennes</td>
-                    <td>Nantes, Rennes, Toulouse</td>
-                    <td>7 500€</td>
-                    <td>8 500€</td>
-                    <td style="color:red; font-weight:700;">16 000€</td>
-                </tr>
-                <tr>
-                    <td>Villes Abordables</td>
-                    <td>Angers, Le Mans, Grenoble</td>
+                    <td>Villes de Province</td>
                     <td>7 000€</td>
-                    <td>7 200€</td>
-                    <td style="color:red; font-weight:700;">14 200€</td>
+                    <td>7 500€</td>
+                    <td style="color:#e74c3c; font-weight:700;">14 500€</td>
                 </tr>
                 <tr class="row-accent">
                     <td>TENERIFE (Nomad)</td>
-                    <td>Santa Cruz</td>
                     <td colspan="2" style="text-align:center;">PACK TOUT INCLUS</td>
-                    <td style="font-size: 1.1rem;">13 500€</td>
+                    <td style="font-size: 1.2rem;">13 500€</td>
                 </tr>
             </tbody>
         </table>
@@ -302,12 +332,13 @@
 
 <section id="contact" class="form-section">
     <div class="form-container">
-        <h2 style="font-family: 'Montserrat'; font-size: 1.8rem;">Candidature 2026</h2>
+        <h2 style="font-family:'Montserrat'; font-weight:900;">Rejoignez l'aventure</h2>
+        <p>Recevez votre dossier de candidature sous 24h.</p>
         <form>
-            <input type="text" placeholder="Prénom et Nom" required>
-            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Nom complet" required>
+            <input type="email" placeholder="Email de contact" required>
             <select required>
-                <option value="">Filière BTS souhaitée</option>
+                <option value="">Choix du BTS</option>
                 <option>BTS Tourisme</option>
                 <option>BTS Commerce International</option>
                 <option>BTS Gestion de la PME</option>
@@ -317,9 +348,9 @@
     </div>
 </section>
 
-<footer style="text-align:center; padding: 50px; background: #111; color: #86868b;">
-    <strong>NOMAD BUSINESS SCHOOL</strong><br>
-    © 2026 Campus Tenerife.
+<footer>
+    <img src="Logo NBS.jpeg" alt="NBS" style="height:40px; filter: brightness(0) invert(1); margin-bottom:20px;">
+    <p>© 2026 Nomad Business School - Campus Tenerife.<br>L'excellence sans frontières.</p>
 </footer>
 
 </body>
