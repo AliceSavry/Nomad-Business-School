@@ -69,16 +69,71 @@
         }
 
         .logistique { padding: 80px 5%; background: white; }
-        .section-title { text-align: center; font-family: 'Montserrat'; color: var(--primary); margin-bottom: 50px; }
+        .section-title { text-align: center; font-family: 'Montserrat'; color: var(--primary); margin-bottom: 20px; }
+        .section-subtitle { text-align: center; margin-bottom: 50px; color: #666; font-style: italic; }
 
+        /* --- STYLES DES FLIP CARDS --- */
         .grid-logistique {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
+            perspective: 1000px; /* Nécessaire pour l'effet 3D */
         }
 
-        .log-card { padding: 30px; border-radius: 20px; background: var(--bg-light); border-left: 6px solid var(--primary); }
-        .log-card h3 { color: var(--primary); margin-top: 0; }
+        .flip-card {
+            background-color: transparent;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* La carte se retourne au survol (PC) et on peut ajouter une classe JS pour le clic (Mobile) */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .flip-card-front {
+            background: var(--bg-light);
+            border-left: 6px solid var(--primary);
+            color: #333;
+        }
+
+        .flip-card-back {
+            background: var(--primary);
+            color: white;
+            transform: rotateY(180deg);
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .flip-card-front h3 { color: var(--primary); margin-bottom: 15px; }
+        .flip-card-back h3 { color: var(--secondary); margin-top: 0; font-size: 1.2rem; }
+        .flip-card-back ul { padding-left: 20px; margin: 0; }
+        .flip-card-back li { margin-bottom: 8px; }
+
+        /* --- FIN DES STYLES FLIP CARDS --- */
 
         .comparatif { padding: 80px 5%; }
         .table-container { overflow-x: auto; margin-top: 40px; }
@@ -119,19 +174,63 @@
 
 <section class="logistique">
     <h2 class="section-title">Zéro frais cachés, 100% Sérénité</h2>
+    <p class="section-subtitle">(Survolez ou cliquez sur les cartes pour voir les détails)</p>
+    
     <div class="grid-logistique">
-        <div class="log-card">
-            <h3>🏠 Logement Garanti 12 Mois</h3>
-            <p>Le toit est inclus. Votre enfant dispose d'une place en <strong>colocation sélectionnée</strong> toute l'année, sans frais de dossier ni garant complexe.</p>
+        
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>🏠 Logement Garanti 12 Mois</h3>
+                    <p>Votre enfant dispose d'une place en colocation sélectionnée toute l'année, sans frais de dossier ni garant.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Le Logement Nomad :</h3>
+                    <ul>
+                        <li>Colocations sélectionnées par nos soins.</li>
+                        <li>Contrat de 12 mois (logement assuré même l'été).</li>
+                        <li>Gestion administrative simplifiée.</li>
+                        <li>Charges courantes et Wifi inclus.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="log-card">
-            <h3>🤝 Mentorat & Accessibilité</h3>
-            <p>Inclus. <strong>Un mentor est accessible tous les jours</strong> pour encadrer les études et assurer la réussite du BTS. Un suivi humain et réactif pour ne jamais rester bloqué.</p>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>🤝 Mentorat & Accessibilité</h3>
+                    <p>Un mentor accessible tous les jours pour encadrer les études. Un suivi humain pour ne jamais rester bloqué.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Le Suivi Pédagogique :</h3>
+                    <ul>
+                        <li><strong>Quotidien :</strong> Mentor accessible par messagerie pour toute question.</li>
+                        <li><strong>Trimestriel :</strong> Une semaine de suivi individuel intensif à Tenerife avec Alice.</li>
+                        <li>Points d'étape réguliers sur la progression CNED.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="log-card">
-            <h3>🌊 Immersion & Loisirs</h3>
-            <p>Inclus. Activités sportives et culturelles pour favoriser l'intégration et le bilinguisme au sein d'une communauté soudée.</p>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h3>🌊 Immersion & Loisirs</h3>
+                    <p>Activités sportives et culturelles pour favoriser l'intégration et le bilinguisme au sein de la communauté.</p>
+                </div>
+                <div class="flip-card-back">
+                    <h3>Vivre Tenerife :</h3>
+                    <ul>
+                        <li>Sorties hebdomadaires (Surf, Rando, Volcan).</li>
+                        <li>Ateliers de langue espagnole en immersion.</li>
+                        <li>Événements de cohésion entre étudiants.</li>
+                        <li>Accès aux espaces de co-working partenaires.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+
     </div>
 </section>
 
