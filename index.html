@@ -21,8 +21,10 @@
             background: white;
             color: var(--nbs-dark);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* --- NAVIGATION & TOPBAR --- */
         .top-bar {
             background: var(--nbs-green);
             color: white;
@@ -33,11 +35,12 @@
             position: sticky;
             top: 0;
             z-index: 1001;
+            letter-spacing: 0.5px;
         }
 
         header {
             background: var(--glass);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             padding: 10px 5%;
             display: flex;
             justify-content: space-between;
@@ -53,7 +56,9 @@
             height: 65px;
             width: auto;
             display: block;
+            transition: transform 0.3s ease;
         }
+        .logo-img:hover { transform: scale(1.05); }
 
         .campus-label {
             font-family: 'Montserrat';
@@ -65,6 +70,7 @@
             text-transform: uppercase;
         }
 
+        /* --- HERO SECTION --- */
         .hero {
             height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('Tenerife1.jpeg');
@@ -79,8 +85,8 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: 3.8rem; font-weight: 900; margin: 0; }
-        .hero p { font-size: 1.4rem; margin: 25px 0 40px; max-width: 800px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin: 0; line-height: 1.1; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.4rem); margin: 25px 0 40px; max-width: 800px; font-weight: 300; }
 
         .btn-hero {
             background: var(--nbs-gold);
@@ -89,99 +95,242 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 1.1rem;
             box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4);
+            transition: all 0.3s ease;
         }
+        .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 20px 35px rgba(217, 146, 43, 0.5); }
 
-        .edu-section { padding: 100px 5%; text-align: center; }
-        .edu-grid {
+        /* --- INTERACTIVE CARDS (FLIP) --- */
+        .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; margin: 80px 0 20px; color: var(--nbs-green); }
+        
+        .flip-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 5% 80px;
         }
-        .edu-card {
-            padding: 40px;
-            border-radius: 30px;
-            background: var(--nbs-gray);
-        }
-        .edu-card h3 { color: var(--nbs-blue); font-family: 'Montserrat'; font-size: 1.4rem; margin-bottom: 20px; }
 
-        .contact-section { padding: 100px 20px; background: var(--nbs-blue); color: white; }
-        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 45px; border-radius: 40px; color: var(--nbs-dark); }
+        .flip-card {
+            height: 350px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 35px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        .card-front { background: white; border: 1px solid #eee; text-align: center; }
+        .card-back { transform: rotateY(180deg); color: white; }
+
+        .flip-card:nth-child(1) .card-back { background: var(--nbs-blue); }
+        .flip-card:nth-child(2) .card-back { background: var(--nbs-green); }
+        .flip-card:nth-child(3) .card-back { background: var(--nbs-gold); }
+
+        .card-front h3 { font-family: 'Montserrat'; color: var(--nbs-blue); font-size: 1.5rem; margin-bottom: 15px; }
+        .tap-hint { font-size: 0.7rem; color: #bbb; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- COMPARATIVE TABLE --- */
+        .comparatif { padding: 80px 5%; background: var(--nbs-gray); }
+        .table-wrapper { 
+            background: white; 
+            border-radius: 40px; 
+            padding: 20px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th { padding: 25px; text-align: left; font-size: 0.85rem; color: #999; text-transform: uppercase; border-bottom: 2px solid var(--nbs-gray); }
+        td { padding: 25px; border-bottom: 1px solid #f0f0f0; font-size: 1.05rem; }
+        .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; border-radius: 20px; }
+        .row-accent td:first-child { border-radius: 20px 0 0 20px; }
+        .row-accent td:last-child { border-radius: 0 20px 20px 0; }
+
+        /* --- CONTACT FORM --- */
+        .contact-section { padding: 100px 20px; background: white; }
+        .form-container { 
+            max-width: 550px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 50px; 
+            border-radius: 40px; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+        }
         
         input, select { 
-            width: 100%; padding: 20px; margin-bottom: 18px; 
-            border: 2px solid #eee; border-radius: 18px; 
-            font-size: 1rem; box-sizing: border-box;
+            width: 100%; padding: 20px; margin-bottom: 20px; 
+            border: 2px solid var(--nbs-gray); border-radius: 18px; 
+            font-size: 1rem; box-sizing: border-box; font-family: inherit;
+            transition: border-color 0.3s;
         }
+        input:focus { border-color: var(--nbs-blue); outline: none; }
+        
         .btn-submit { 
             width: 100%; background: var(--nbs-green); color: white; 
             border: none; padding: 22px; border-radius: 18px; 
-            font-weight: 700; cursor: pointer;
+            font-weight: 700; font-size: 1.2rem; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(45, 106, 62, 0.2);
         }
 
-        footer { background: #111; color: white; padding: 60px 20px; text-align: center; }
-        .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.8rem; margin-bottom: 15px; display: block; }
-        
-        /* Style pour la mention légale en bas */
-        .legal-note {
-            font-size: 0.75rem;
-            color: #888;
-            max-width: 600px;
-            margin: 40px auto 0;
-            line-height: 1.4;
-            font-style: italic;
+        /* --- FOOTER --- */
+        footer { background: #111; color: white; padding: 80px 20px; text-align: center; }
+        .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.8rem; margin-bottom: 10px; display: block; }
+        .footer-logo-text span { color: var(--nbs-blue); }
+        .legal-note { font-size: 0.75rem; color: #666; max-width: 700px; margin: 40px auto 0; line-height: 1.5; font-style: italic; }
+
+        @media (max-width: 768px) {
+            header { padding: 10px 20px; }
+            .hero h1 { font-size: 2.8rem; }
+            .flip-grid { padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">🎓 ACADÉMIE PRO : Sessions trimestrielles • Apprentissage par projets réels à Tenerife</div>
+<div class="top-bar">☀️ LIBERTÉ & EXCELLENCE : Sessions trimestrielles • Apprentissage par projets à Tenerife</div>
 
 <header>
     <div class="logo-container">
         <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
     </div>
-    <div class="campus-label">Prochaines Intégrations<br>Avril • Juillet • Octobre • Janvier</div>
+    <div class="campus-label">Prochaines Sessions<br>Avril • Juillet • Octobre • Janvier</div>
 </header>
 
 <section class="hero">
     <h1>L'école qui vit.</h1>
-    <p>Un cursus 100% orienté résultats, propulsé par notre Programme Professionnel Exclusif*.</p>
+    <p>Maîtrisez les codes du business moderne avec notre Programme Professionnel Exclusif* en immersion totale sous le soleil des Canaries.</p>
     <a href="#contact" class="btn-hero">Postuler pour le prochain trimestre</a>
 </section>
 
-<section class="edu-section">
-    <h2 style="font-family:'Montserrat'; font-size: 2.5rem;">Pédagogie Native</h2>
-    <div class="edu-grid">
-        <div class="edu-card">
-            <h3>📂 Ressources NBS*</h3>
-            <p>Accédez à notre bibliothèque de ressources propriétaires : études de cas, outils de pilotage et modules de spécialisation pro.</p>
+<h2 class="section-title">L'expérience Nomad</h2>
+<section class="flip-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 3rem;">🏠</span>
+                <h3>Logement Garanti</h3>
+                <p>Oubliez la galère des dossiers et des garants.</p>
+                <div class="tap-hint">Cliquer pour découvrir</div>
+            </div>
+            <div class="card-back">
+                <h3>Vivez l'immersion</h3>
+                <p>Une place en colocation premium est réservée pour chaque étudiant dès son inscription. Un cadre de vie exceptionnel pour favoriser l'échange et le networking.</p>
+            </div>
         </div>
-        <div class="edu-card">
-            <h3>📅 Sessions Flex</h3>
-            <p>Un rythme trimestriel qui s'adapte à votre vitesse d'apprentissage et à vos projets d'entrepreneuriat.</p>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 3rem;">📂</span>
+                <h3>Ressources NBS*</h3>
+                <p>Une pédagogie native conçue pour le terrain.</p>
+                <div class="tap-hint">Cliquer pour découvrir</div>
+            </div>
+            <div class="card-back">
+                <h3>Contenu Propriétaire</h3>
+                <p>Accédez à nos modules pro exclusifs : marketing digital, IA appliquée, et gestion de projet. Des outils concrets utilisés par les entreprises aujourd'hui.</p>
+            </div>
         </div>
-        <div class="edu-card">
-            <h3>🤝 Masterclass</h3>
-            <p>Chaque semaine, des experts du monde entier partagent leurs secrets lors de sessions en direct sur le campus.</p>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 3rem;">🌊</span>
+                <h3>Masterclass Pro</h3>
+                <p>Apprenez des meilleurs, chaque semaine.</p>
+                <div class="tap-hint">Cliquer pour découvrir</div>
+            </div>
+            <div class="card-back">
+                <h3>Expertise Réelle</h3>
+                <p>Chaque trimestre est rythmé par des Masterclass animées par des entrepreneurs et experts internationaux venant partager leur expérience réelle.</p>
+            </div>
         </div>
+    </div>
+</section>
+
+<section class="comparatif">
+    <h2 class="section-title">Le comparatif réel</h2>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ville / Campus</th>
+                    <th>Formation</th>
+                    <th>Vie & Logement</th>
+                    <th>Investissement Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Grandes Villes (Paris/Lyon)</td>
+                    <td>8 500 €</td>
+                    <td>11 400 €</td>
+                    <td style="color: #e74c3c; font-weight: 700;">19 900 € / an</td>
+                </tr>
+                <tr>
+                    <td>Villes Moyennes (Province)</td>
+                    <td>7 000 €</td>
+                    <td>7 200 €</td>
+                    <td style="color: #e74c3c; font-weight: 700;">14 200 € / an</td>
+                </tr>
+                <tr class="row-accent">
+                    <td>TENERIFE (Nomad Business School)</td>
+                    <td colspan="2" style="text-align: center; letter-spacing: 1px;">PACK TOUT INCLUS (Logis + Cours + Mentorat)</td>
+                    <td style="font-size: 1.3rem;">13 500 € / an</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
 <section id="contact" class="contact-section">
     <div class="form-container">
-        <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Candidature</h2>
+        <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Dossier d'admission</h2>
+        <p style="text-align:center; color:#666; margin-bottom:30px;">Précisez votre période de départ pour recevoir votre guide personnalisé.</p>
         <form>
-            <input type="text" placeholder="Nom et Prénom" required>
-            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Prénom et Nom" required>
+            <input type="email" placeholder="Email de contact" required>
+            
             <select required>
-                <option value="">Trimestre souhaité</option>
-                <option>Avril 2026</option>
-                <option>Juillet 2026</option>
-                <option>Octobre 2026</option>
-                <option>Janvier 2027</option>
+                <option value="">Trimestre de départ souhaité</option>
+                <option>Session Avril 2026</option>
+                <option>Session Juillet 2026</option>
+                <option>Session Octobre 2026</option>
+                <option>Session Janvier 2027</option>
             </select>
+
+            <select required>
+                <option value="">Spécialisation visée</option>
+                <option>Management & Entrepreneuriat</option>
+                <option>Tourisme & Hospitality</option>
+                <option>Commerce International</option>
+            </select>
+            
             <button type="submit" class="btn-submit">Demander les accès candidat</button>
         </form>
     </div>
@@ -189,7 +338,7 @@
 
 <footer>
     <span class="footer-logo-text">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
-    <p>© 2026 Campus Tenerife.</p>
+    <p>© 2026 Campus Tenerife. Tous droits réservés.</p>
     
     <div class="legal-note">
         * Les Ressources Pédagogiques NBS et le Programme Professionnel Exclusif sont actuellement en cours de rédaction finale. Afin de garantir une qualité académique irréprochable, les supports sont temporairement assurés par un prestataire national français reconnu jusqu'à la validation complète de nos propres modules.
