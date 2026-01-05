@@ -35,7 +35,6 @@
             position: sticky;
             top: 0;
             z-index: 1001;
-            letter-spacing: 0.5px;
         }
 
         header {
@@ -52,13 +51,7 @@
             height: 80px;
         }
 
-        .logo-img {
-            height: 65px;
-            width: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-        .logo-img:hover { transform: scale(1.05); }
+        .logo-img { height: 65px; width: auto; display: block; }
 
         .campus-label {
             font-family: 'Montserrat';
@@ -72,7 +65,7 @@
 
         /* --- HERO SECTION --- */
         .hero {
-            height: 80vh;
+            height: 75vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
@@ -99,24 +92,20 @@
             box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4);
             transition: all 0.3s ease;
         }
-        .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 20px 35px rgba(217, 146, 43, 0.5); }
 
-        /* --- INTERACTIVE CARDS (FLIP) --- */
+        /* --- SECTION TITLES --- */
         .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; margin: 80px 0 20px; color: var(--nbs-green); }
-        
+        .section-subtitle { text-align: center; color: #666; margin-bottom: 50px; padding: 0 20px; }
+
+        /* --- FLIP CARDS --- */
         .flip-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            padding: 40px 5% 80px;
+            padding: 0 5% 80px;
         }
 
-        .flip-card {
-            height: 350px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
+        .flip-card { height: 350px; perspective: 1000px; cursor: pointer; }
         .flip-card-inner {
             position: relative;
             width: 100%;
@@ -124,14 +113,12 @@
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
         }
-
         .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 
         .card-front, .card-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 35px;
             padding: 40px;
@@ -141,71 +128,74 @@
             justify-content: center;
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
-
         .card-front { background: white; border: 1px solid #eee; text-align: center; }
         .card-back { transform: rotateY(180deg); color: white; }
-
         .flip-card:nth-child(1) .card-back { background: var(--nbs-blue); }
         .flip-card:nth-child(2) .card-back { background: var(--nbs-green); }
         .flip-card:nth-child(3) .card-back { background: var(--nbs-gold); }
 
-        .card-front h3 { font-family: 'Montserrat'; color: var(--nbs-blue); font-size: 1.5rem; margin-bottom: 15px; }
-        .tap-hint { font-size: 0.7rem; color: #bbb; margin-top: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        /* --- ADMISSIONS SECTION --- */
+        .admissions { background: var(--nbs-gray); padding: 80px 5%; }
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .step-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            position: relative;
+            border-bottom: 5px solid var(--nbs-gold);
+        }
+        .step-num {
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            background: var(--nbs-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-family: 'Montserrat';
+        }
 
         /* --- COMPARATIVE TABLE --- */
-        .comparatif { padding: 80px 5%; background: var(--nbs-gray); }
+        .comparatif { padding: 80px 5%; background: white; }
         .table-wrapper { 
             background: white; 
             border-radius: 40px; 
             padding: 20px; 
             box-shadow: 0 25px 50px rgba(0,0,0,0.05);
             overflow-x: auto;
+            border: 1px solid #eee;
         }
         table { width: 100%; border-collapse: collapse; min-width: 600px; }
         th { padding: 25px; text-align: left; font-size: 0.85rem; color: #999; text-transform: uppercase; border-bottom: 2px solid var(--nbs-gray); }
-        td { padding: 25px; border-bottom: 1px solid #f0f0f0; font-size: 1.05rem; }
-        .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; border-radius: 20px; }
-        .row-accent td:first-child { border-radius: 20px 0 0 20px; }
-        .row-accent td:last-child { border-radius: 0 20px 20px 0; }
+        td { padding: 25px; border-bottom: 1px solid #f0f0f0; }
+        .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
 
-        /* --- CONTACT FORM --- */
-        .contact-section { padding: 100px 20px; background: white; }
+        /* --- FORM --- */
+        .contact-section { padding: 100px 20px; background: var(--nbs-gray); }
         .form-container { 
-            max-width: 550px; 
-            margin: 0 auto; 
-            background: white; 
-            padding: 50px; 
-            border-radius: 40px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            border: 1px solid #f0f0f0;
+            max-width: 550px; margin: 0 auto; background: white; padding: 50px; 
+            border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
         }
-        
-        input, select { 
-            width: 100%; padding: 20px; margin-bottom: 20px; 
-            border: 2px solid var(--nbs-gray); border-radius: 18px; 
-            font-size: 1rem; box-sizing: border-box; font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        input:focus { border-color: var(--nbs-blue); outline: none; }
-        
-        .btn-submit { 
-            width: 100%; background: var(--nbs-green); color: white; 
-            border: none; padding: 22px; border-radius: 18px; 
-            font-weight: 700; font-size: 1.2rem; cursor: pointer;
-            box-shadow: 0 10px 20px rgba(45, 106, 62, 0.2);
-        }
+        input, select { width: 100%; padding: 20px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 18px; font-size: 1rem; box-sizing: border-box; }
+        .btn-submit { width: 100%; background: var(--nbs-green); color: white; border: none; padding: 22px; border-radius: 18px; font-weight: 700; font-size: 1.2rem; cursor: pointer; }
 
         /* --- FOOTER --- */
         footer { background: #111; color: white; padding: 80px 20px; text-align: center; }
         .footer-logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.8rem; margin-bottom: 10px; display: block; }
-        .footer-logo-text span { color: var(--nbs-blue); }
         .legal-note { font-size: 0.75rem; color: #666; max-width: 700px; margin: 40px auto 0; line-height: 1.5; font-style: italic; }
 
-        @media (max-width: 768px) {
-            header { padding: 10px 20px; }
-            .hero h1 { font-size: 2.8rem; }
-            .flip-grid { padding: 20px; }
-        }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -237,11 +227,10 @@
             </div>
             <div class="card-back">
                 <h3>Vivez l'immersion</h3>
-                <p>Une place en colocation premium est réservée pour chaque étudiant dès son inscription. Un cadre de vie exceptionnel pour favoriser l'échange et le networking.</p>
+                <p>Une place en colocation premium est réservée pour chaque étudiant dès son inscription. Un cadre de vie exceptionnel pour favoriser le bilinguisme et le networking.</p>
             </div>
         </div>
     </div>
-
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
@@ -256,7 +245,6 @@
             </div>
         </div>
     </div>
-
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
@@ -267,8 +255,30 @@
             </div>
             <div class="card-back">
                 <h3>Expertise Réelle</h3>
-                <p>Chaque trimestre est rythmé par des Masterclass animées par des entrepreneurs et experts internationaux venant partager leur expérience réelle.</p>
+                <p>Chaque trimestre est rythmé par des Masterclass animées par des entrepreneurs et experts internationaux venant partager leur expérience réelle sur le campus.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="admissions">
+    <h2 class="section-title">Conditions d'admission</h2>
+    <p class="section-subtitle">Un processus sélectif basé sur la motivation et le projet professionnel.</p>
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Pré-requis</h3>
+            <p>Être titulaire du Baccalauréat (toutes filières) ou d'un titre de niveau 4 équivalent.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Dossier</h3>
+            <p>Analyse du parcours académique et questionnaire de culture digitale Nomad.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Entretien</h3>
+            <p>Échange de 30 min en visio pour valider votre adéquation avec l'esprit Nomad.</p>
         </div>
     </div>
 </section>
@@ -282,26 +292,16 @@
                     <th>Ville / Campus</th>
                     <th>Formation</th>
                     <th>Vie & Logement</th>
-                    <th>Investissement Total</th>
+                    <th>Total Estimé</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Grandes Villes (Paris/Lyon)</td>
-                    <td>8 500 €</td>
-                    <td>11 400 €</td>
-                    <td style="color: #e74c3c; font-weight: 700;">19 900 € / an</td>
-                </tr>
-                <tr>
-                    <td>Villes Moyennes (Province)</td>
-                    <td>7 000 €</td>
-                    <td>7 200 €</td>
-                    <td style="color: #e74c3c; font-weight: 700;">14 200 € / an</td>
-                </tr>
+                <tr><td>Paris / Lyon</td><td>8 500 €</td><td>11 400 €</td><td style="color:#e74c3c; font-weight:700;">19 900 € / an</td></tr>
+                <tr><td>Villes Province</td><td>7 000 €</td><td>7 200 €</td><td style="color:#e74c3c; font-weight:700;">14 200 € / an</td></tr>
                 <tr class="row-accent">
-                    <td>TENERIFE (Nomad Business School)</td>
-                    <td colspan="2" style="text-align: center; letter-spacing: 1px;">PACK TOUT INCLUS (Logis + Cours + Mentorat)</td>
-                    <td style="font-size: 1.3rem;">13 500 € / an</td>
+                    <td>TENERIFE (Nomad)</td>
+                    <td colspan="2" style="text-align:center;">PACK TOUT INCLUS (Logis + Cours + Mentorat)</td>
+                    <td style="font-size:1.2rem;">13 500 € / an</td>
                 </tr>
             </tbody>
         </table>
@@ -311,26 +311,21 @@
 <section id="contact" class="contact-section">
     <div class="form-container">
         <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Dossier d'admission</h2>
-        <p style="text-align:center; color:#666; margin-bottom:30px;">Précisez votre période de départ pour recevoir votre guide personnalisé.</p>
         <form>
             <input type="text" placeholder="Prénom et Nom" required>
-            <input type="email" placeholder="Email de contact" required>
-            
+            <input type="email" placeholder="Email" required>
             <select required>
-                <option value="">Trimestre de départ souhaité</option>
+                <option value="">Session de départ souhaitée</option>
                 <option>Session Avril 2026</option>
                 <option>Session Juillet 2026</option>
                 <option>Session Octobre 2026</option>
-                <option>Session Janvier 2027</option>
             </select>
-
             <select required>
                 <option value="">Spécialisation visée</option>
                 <option>Management & Entrepreneuriat</option>
                 <option>Tourisme & Hospitality</option>
                 <option>Commerce International</option>
             </select>
-            
             <button type="submit" class="btn-submit">Demander les accès candidat</button>
         </form>
     </div>
@@ -339,7 +334,6 @@
 <footer>
     <span class="footer-logo-text">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
     <p>© 2026 Campus Tenerife. Tous droits réservés.</p>
-    
     <div class="legal-note">
         * Les Ressources Pédagogiques NBS et le Programme Professionnel Exclusif sont actuellement en cours de rédaction finale. Afin de garantir une qualité académique irréprochable, les supports sont temporairement assurés par un prestataire national français reconnu jusqu'à la validation complète de nos propres modules.
     </div>
