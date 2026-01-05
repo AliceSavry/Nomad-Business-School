@@ -7,56 +7,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --apple-blue: #0071e3; /* Le bleu vif de ton bouton sur la capture */
+            --apple-blue: #0071e3;
             --apple-dark: #1d1d1f;
             --apple-gray: #f5f5f7;
             --nomad-deep: #0a2e52;
-            --nomad-accent: #f39c12;
-            --glass: rgba(255, 255, 255, 0.8);
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            color: var(--apple-dark);
             background: white;
-            scroll-behavior: smooth;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Barre de notification responsive --- */
+        /* --- CORRECTION DE LA TOP BAR --- */
         .top-bar {
             background: #27ae60;
             color: white;
             text-align: center;
-            padding: 10px 15px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            padding: 8px 10px; /* Moins de padding pour gagner de la place */
+            font-size: 0.9rem;
+            font-weight: 600;
             position: sticky;
             top: 0;
             z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 40px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
-        /* --- Header adaptable --- */
+        /* --- Header avec logo --- */
         header {
             background: var(--glass);
             backdrop-filter: blur(20px);
-            padding: 15px 5%;
+            padding: 12px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 38px;
+            top: 40px; /* S'ajuste sous la top-bar */
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.2rem; letter-spacing: -1px; }
-        .campus-badge { font-size: 0.8rem; font-weight: 600; color: #666; }
+        .logo-text { font-family: 'Montserrat'; font-weight: 900; font-size: 1.1rem; letter-spacing: -1px; }
+        .campus-badge { font-size: 0.75rem; font-weight: 600; color: #666; text-align: right; }
 
         /* --- Hero Section --- */
         .hero {
-            height: 80vh;
+            height: 75vh;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
@@ -69,57 +72,20 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: 2.8rem; font-weight: 900; margin-bottom: 20px; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; font-weight: 300; max-width: 600px; margin-bottom: 30px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: 2.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
 
-        /* --- Sections de contenu --- */
-        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Montserrat'; font-size: 2.2rem; text-align: center; margin-bottom: 10px; }
-        .section-subtitle { text-align: center; font-size: 1.1rem; color: #86868b; margin-bottom: 40px; }
-
-        /* --- Cartes Admissibilité --- */
-        .admissibilite-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .step-card {
-            background: var(--apple-gray);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: left;
-            border: 1px solid transparent;
-        }
-
-        /* --- Tableau Comparatif Responsive --- */
-        .comparatif-wrapper { 
-            background: var(--apple-gray); 
-            border-radius: 30px; 
-            padding: 30px 15px; 
-            margin: 20px 0;
-            overflow-x: auto; /* Permet de swiper le tableau sur mobile */
-        }
-
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { text-align: left; font-size: 0.7rem; color: #86868b; padding-bottom: 10px; text-transform: uppercase; }
-        td { padding: 15px 10px; background: white; border-bottom: 2px solid var(--apple-gray); font-size: 0.9rem; }
-        .row-highlight td { background: var(--nomad-deep); color: white; font-weight: bold; }
-
-        /* --- FORMULAIRE (Le point critique de ta capture) --- */
-        .form-section { background: white; padding: 80px 20px; }
-        .form-container { max-width: 450px; margin: 0 auto; }
+        /* --- Formulaire (Correction largeur et padding) --- */
+        .form-section { padding: 60px 20px; text-align: center; }
+        .form-container { max-width: 400px; margin: 0 auto; }
         
         input, select { 
             width: 100%; 
-            box-sizing: border-box; /* IMPORTANT : inclut le padding dans la largeur */
-            padding: 18px; 
-            margin-bottom: 15px; 
+            box-sizing: border-box; 
+            padding: 16px; 
+            margin-bottom: 12px; 
             border: 1px solid #d2d2d7; 
-            border-radius: 14px; 
-            background: #fff; 
-            font-size: 16px; /* Évite le zoom auto sur iPhone */
-            appearance: none;
+            border-radius: 12px; 
+            font-size: 16px; /* Taille 16px pour éviter le zoom auto sur mobile */
         }
 
         .submit-btn { 
@@ -127,100 +93,47 @@
             background: var(--apple-blue); 
             color: white; 
             border: none; 
-            padding: 20px; 
-            border-radius: 14px; 
+            padding: 18px; 
+            border-radius: 12px; 
             font-weight: 600; 
             font-size: 1rem;
             cursor: pointer;
-            transition: opacity 0.2s;
         }
 
-        /* --- Pied de page --- */
-        footer { padding: 50px 20px; background: #111; color: #86868b; text-align: center; line-height: 1.6; }
-        footer strong { color: white; display: block; margin-bottom: 10px; font-size: 1.1rem; }
-
-        /* --- MEDIA QUERIES (Ajustements Mobile) --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 1.8rem; }
-            header .nav-links { display: none; } /* On cache les liens de menu sur mobile pour la clarté */
-            .hero { height: 70vh; }
+        /* --- ADAPTATION MOBILE SPECIALE (Media Queries) --- */
+        @media (max-width: 430px) {
+            .top-bar {
+                font-size: 0.75rem; /* Réduction de la police pour que le prix rentre */
+                padding: 6px 8px;
+                line-height: 1.2;
+            }
+            .logo-text { font-size: 1rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .campus-badge { font-size: 0.65rem; }
         }
+
+        footer { padding: 40px 20px; background: #111; color: #86868b; text-align: center; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ RENTRÉE 2026 : Formation + Logement pour 1 125 € / mois</div>
+<div class="top-bar">☀️ RENTRÉE 2026 : Votre futur commence à Tenerife pour 1 125 € / mois Tout Inclus</div>
 
 <header>
     <div class="logo-text">NOMAD <span style="color:var(--apple-blue)">BUSINESS SCHOOL</span></div>
-    <div class="campus-badge">CAMPUS TENERIFE</div>
+    <div class="campus-badge">CAMPUS<br>TENERIFE</div>
 </header>
 
 <section class="hero">
-    <h1>Rejoignez l'aventure.</h1>
-    <p>Étudiez à Tenerife : diplôme d'État, logement inclus et cadre de vie exceptionnel.</p>
-    <a href="#contact" class="submit-btn" style="text-decoration:none; text-align:center; max-width:300px;">Vérifier mon admissibilité</a>
-</section>
-
-<section id="selection">
-    <h2 class="section-title">Critères d'admission</h2>
-    <p class="section-subtitle">Un processus simple et humain, hors Parcoursup.</p>
-    <div class="admissibilite-container">
-        <div class="step-card">
-            <strong>01. NIVEAU BAC</strong>
-            <p>Ouvert aux titulaires du Baccalauréat ou équivalent (Niveau 4).</p>
-        </div>
-        <div class="step-card">
-            <strong>02. DOSSIER</strong>
-            <p>Analyse des bulletins et test de culture générale Nomad.</p>
-        </div>
-        <div class="step-card">
-            <strong>03. ENTRETIEN</strong>
-            <p>Échange de 30 min sur votre motivation et votre projet.</p>
-        </div>
-    </div>
-</section>
-
-<section id="comparatif">
-    <h2 class="section-title">Le comparatif</h2>
-    <div class="comparatif-wrapper">
-        <table>
-            <thead>
-                <tr>
-                    <th>Ville</th>
-                    <th>Formation</th>
-                    <th>Vie/Logement</th>
-                    <th>Total/an</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Paris / Lyon</td>
-                    <td>8 500€</td>
-                    <td>11 400€</td>
-                    <td style="color:red">19 900€</td>
-                </tr>
-                <tr>
-                    <td>Angers / Le Mans</td>
-                    <td>7 000€</td>
-                    <td>7 200€</td>
-                    <td style="color:red">14 200€</td>
-                </tr>
-                <tr class="row-highlight">
-                    <td>TENERIFE (Nomad)</td>
-                    <td colspan="2">TOUT INCLUS</td>
-                    <td>13 500€</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1>Étudiez.<br>Voyagez.<br>Réussissez.</h1>
+    <p>Le seul BTS en immersion totale aux Canaries.</p>
+    <a href="#contact" style="background: white; color: black; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: 600; margin-top: 20px;">Postuler pour 2026</a>
 </section>
 
 <section id="contact" class="form-section">
     <div class="form-container">
-        <h2 class="section-title">Candidature 2026</h2>
-        <p class="section-subtitle">Recevez votre dossier sous 24h.</p>
+        <h2 style="font-family: 'Montserrat'; font-size: 2rem; margin-bottom: 10px;">Candidature</h2>
+        <p style="color: #86868b; margin-bottom: 30px;">Vérifiez votre éligibilité en 1 minute.</p>
         <form>
             <input type="text" placeholder="Prénom et Nom" required>
             <input type="email" placeholder="Email" required>
@@ -237,7 +150,7 @@
 
 <footer>
     <strong>NOMAD BUSINESS SCHOOL</strong>
-    <p>© 2026 Campus Tenerife.<br>L'excellence académique sans frontières.</p>
+    <p>© 2026 Campus Tenerife. <br>L'excellence académique sans frontières.</p>
 </footer>
 
 </body>
