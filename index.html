@@ -72,17 +72,16 @@
         .section-title { text-align: center; font-family: 'Montserrat'; color: var(--primary); margin-bottom: 20px; }
         .section-subtitle { text-align: center; margin-bottom: 50px; color: #666; font-style: italic; }
 
-        /* --- STYLES DES FLIP CARDS --- */
         .grid-logistique {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            perspective: 1000px; /* Nécessaire pour l'effet 3D */
+            perspective: 1000px;
         }
 
         .flip-card {
             background-color: transparent;
-            height: 300px;
+            height: 320px;
             cursor: pointer;
         }
 
@@ -95,7 +94,6 @@
             transform-style: preserve-3d;
         }
 
-        /* La carte se retourne au survol (PC) et on peut ajouter une classe JS pour le clic (Mobile) */
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
@@ -104,7 +102,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            -webkit-backface-visibility: hidden; /* Safari */
+            -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 20px;
             display: flex;
@@ -112,10 +110,11 @@
             justify-content: center;
             padding: 30px;
             box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .flip-card-front {
-            background: var(--bg-light);
+            background: white;
             border-left: 6px solid var(--primary);
             color: #333;
         }
@@ -128,12 +127,9 @@
             font-size: 0.95rem;
         }
 
-        .flip-card-front h3 { color: var(--primary); margin-bottom: 15px; }
         .flip-card-back h3 { color: var(--secondary); margin-top: 0; font-size: 1.2rem; }
         .flip-card-back ul { padding-left: 20px; margin: 0; }
         .flip-card-back li { margin-bottom: 8px; }
-
-        /* --- FIN DES STYLES FLIP CARDS --- */
 
         .comparatif { padding: 80px 5%; }
         .table-container { overflow-x: auto; margin-top: 40px; }
@@ -159,7 +155,7 @@
 </head>
 <body>
 
-<div class="top-bar">☀️ RENTRÉE 2026 : 1 000 € / mois Tout Inclus (Scolarité + Logement + Vie)</div>
+<div class="top-bar">☀️ RENTRÉE 2026 : 1 125 € / mois Tout Inclus (Scolarité + Logement + Vie)</div>
 
 <header>
     <div class="logo">NOMAD BUSINESS SCHOOL</div>
@@ -177,20 +173,19 @@
     <p class="section-subtitle">(Survolez ou cliquez sur les cartes pour voir les détails)</p>
     
     <div class="grid-logistique">
-        
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <h3>🏠 Logement Garanti 12 Mois</h3>
-                    <p>Votre enfant dispose d'une place en colocation sélectionnée toute l'année, sans frais de dossier ni garant.</p>
+                    <p>Une place en <strong>colocation sélectionnée</strong> toute l'année, sans frais de dossier ni garant complexe.</p>
                 </div>
                 <div class="flip-card-back">
                     <h3>Le Logement Nomad :</h3>
                     <ul>
-                        <li>Colocations sélectionnées par nos soins.</li>
-                        <li>Contrat de 12 mois (logement assuré même l'été).</li>
-                        <li>Gestion administrative simplifiée.</li>
-                        <li>Charges courantes et Wifi inclus.</li>
+                        <li>Colocations auditées par notre équipe.</li>
+                        <li>Contrat couvrant les 12 mois (même l'été).</li>
+                        <li>Wifi haut débit et charges incluses.</li>
+                        <li>Proximité immédiate des lieux de vie.</li>
                     </ul>
                 </div>
             </div>
@@ -200,14 +195,14 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <h3>🤝 Mentorat & Accessibilité</h3>
-                    <p>Un mentor accessible tous les jours pour encadrer les études. Un suivi humain pour ne jamais rester bloqué.</p>
+                    <p>Un mentor accessible tous les jours pour encadrer les études et assurer la réussite du BTS.</p>
                 </div>
                 <div class="flip-card-back">
                     <h3>Le Suivi Pédagogique :</h3>
                     <ul>
-                        <li><strong>Quotidien :</strong> Mentor accessible par messagerie pour toute question.</li>
-                        <li><strong>Trimestriel :</strong> Une semaine de suivi individuel intensif à Tenerife avec Alice.</li>
-                        <li>Points d'étape réguliers sur la progression CNED.</li>
+                        <li><strong>Quotidien :</strong> Support réactif via messagerie dédiée.</li>
+                        <li><strong>Trimestriel :</strong> Une semaine intensive de suivi individuel en présentiel à Tenerife.</li>
+                        <li>Pilotage rigoureux de votre progression.</li>
                     </ul>
                 </div>
             </div>
@@ -217,20 +212,19 @@
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <h3>🌊 Immersion & Loisirs</h3>
-                    <p>Activités sportives et culturelles pour favoriser l'intégration et le bilinguisme au sein de la communauté.</p>
+                    <p>Activités sportives et culturelles incluses pour favoriser l'intégration et le bilinguisme.</p>
                 </div>
                 <div class="flip-card-back">
-                    <h3>Vivre Tenerife :</h3>
+                    <h3>L'Expérience Tenerife :</h3>
                     <ul>
-                        <li>Sorties hebdomadaires (Surf, Rando, Volcan).</li>
-                        <li>Ateliers de langue espagnole en immersion.</li>
-                        <li>Événements de cohésion entre étudiants.</li>
-                        <li>Accès aux espaces de co-working partenaires.</li>
+                        <li>Programme de loisirs (Surf, Randonnée, Culture).</li>
+                        <li>Communauté soudée d'étudiants.</li>
+                        <li>Immersion linguistique garantie.</li>
+                        <li>Accès aux infrastructures partenaires.</li>
                     </ul>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -264,11 +258,11 @@
                 <tr class="highlight">
                     <td><strong>TENERIFE (Nomad)</strong></td>
                     <td colspan="2"><strong>TOUT INCLUS</strong></td>
-                    <td><strong style="color:var(--success)">12 000 €</strong></td>
+                    <td><strong style="color:var(--success)">13 500 €</strong></td>
                 </tr>
             </tbody>
         </table>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">*Vie & Logement : Loyer sur 12 mois en colocation sélectionnée, charges, coaching et loisirs. Hors alimentation.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">*Vie & Logement : Loyer sur 12 mois, charges, coaching et programme de loisirs. Hors alimentation.</p>
     </div>
 </section>
 
@@ -283,14 +277,14 @@
             <option>BTS Commerce International</option>
             <option>BTS Gestion de la PME</option>
         </select>
-        <textarea rows="4" placeholder="Une question, un besoin d'information, une remarque à formuler ?"></textarea>
+        <textarea rows="4" placeholder="Une question sur le tarif de 1 125€/mois Tout Inclus ?"></textarea>
         <button type="submit" class="submit-btn">Recevoir les informations</button>
     </form>
 </section>
 
 <footer>
     <p><strong>NOMAD BUSINESS SCHOOL TENERIFE</strong></p>
-    <p>Calle La Salle, Santa Cruz de Tenerife | 1 000 € / mois Tout Inclus</p>
+    <p>Calle La Salle, Santa Cruz de Tenerife | 13 500 € / an Tout Inclus</p>
 </footer>
 
 </body>
