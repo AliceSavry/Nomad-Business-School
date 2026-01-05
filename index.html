@@ -69,7 +69,7 @@
 
         .hero h1 { font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
 
-        /* --- FLIP CARDS CORE ENGINE (MOBILE FRIENDLY) --- */
+        /* --- FLIP CARDS ENGINE --- */
         .flip-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -82,6 +82,7 @@
             height: 280px;
             perspective: 1000px;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent; /* Supprime le flash bleu au clic sur mobile */
         }
 
         .flip-card-inner {
@@ -93,10 +94,16 @@
             transform-style: preserve-3d;
         }
 
-        /* Classe déclenchée par JS au clic ou par le hover sur PC */
-        .flip-card.flipped .flip-card-inner, 
-        .flip-card:hover .flip-card-inner {
+        /* Le retournement se fait via la classe .flipped (clic) OU le hover (PC) */
+        .flip-card.flipped .flip-card-inner {
             transform: rotateY(180deg);
+        }
+
+        /* Survol uniquement pour les appareils avec souris */
+        @media (hover: hover) {
+            .flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
         }
 
         .card-front, .card-back {
@@ -144,7 +151,7 @@
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .top-bar { font-size: 0.7rem; }
-            .flip-card { height: 300px; }
+            .flip-card { height: 320px; }
         }
     </style>
 </head>
@@ -172,6 +179,7 @@
             </div>
             <div class="card-back">
                 <p>Le toit est inclus. Votre enfant dispose d'une place en <strong>colocation sélectionnée</strong> toute l'année, sans frais de dossier ni garant complexe.</p>
+                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
             </div>
         </div>
     </div>
@@ -183,6 +191,7 @@
             </div>
             <div class="card-back">
                 <p>Un mentor est accessible <strong>tous les jours</strong> pour encadrer les études et assurer la réussite du BTS. Un suivi humain pour ne jamais rester bloqué.</p>
+                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
             </div>
         </div>
     </div>
@@ -194,6 +203,7 @@
             </div>
             <div class="card-back">
                 <p>Activités sportives et culturelles hebdomadaires pour favoriser l'intégration et le bilinguisme au sein d'une communauté soudée.</p>
+                <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
             </div>
         </div>
     </div>
@@ -211,6 +221,7 @@
                 </div>
                 <div class="card-back">
                     <p>Être titulaire d'un Baccalauréat ou équivalent (Niveau 4).</p>
+                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
                 </div>
             </div>
         </div>
@@ -223,6 +234,7 @@
                 </div>
                 <div class="card-back">
                     <p>Culture générale et étude approfondie des bulletins scolaires pour évaluer le sérieux du candidat.</p>
+                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
                 </div>
             </div>
         </div>
@@ -235,6 +247,7 @@
                 </div>
                 <div class="card-back">
                     <p>Échange de 30 min pour valider la motivation et le projet professionnel avec nos coachs.</p>
+                    <span class="tap-hint" style="color:white; opacity:0.7;">Retourner</span>
                 </div>
             </div>
         </div>
