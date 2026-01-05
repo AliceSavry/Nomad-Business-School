@@ -23,6 +23,7 @@
             scroll-behavior: smooth;
         }
 
+        /* --- NAVIGATION --- */
         .top-bar {
             background: var(--nbs-green);
             color: white;
@@ -61,8 +62,9 @@
             text-transform: uppercase;
         }
 
+        /* --- HERO --- */
         .hero {
-            height: 70vh;
+            height: 60vh;
             background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
@@ -75,106 +77,99 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin: 0; line-height: 1.1; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.4rem); margin: 25px 0 40px; max-width: 800px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; margin: 0; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.3rem); margin: 20px 0 35px; max-width: 800px; }
 
         .btn-hero {
             background: var(--nbs-gold);
             color: white;
-            padding: 22px 55px;
+            padding: 20px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4);
         }
 
-        .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; margin: 80px 0 10px; color: var(--nbs-green); }
-        .section-subtitle { text-align: center; color: #666; margin-bottom: 50px; }
-
-        /* --- COMPARATIF & BUDGET --- */
-        .comparatif { padding: 80px 5%; background: var(--nbs-gray); }
-        .budget-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .budget-item {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid #ddd;
-        }
-        .budget-item strong { display: block; font-size: 1.4rem; color: var(--nbs-blue); }
+        /* --- COMPARATIF --- */
+        .comparatif { padding: 80px 5%; background: white; }
+        .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2rem; margin-bottom: 40px; color: var(--nbs-green); }
 
         .table-wrapper { 
-            background: white; 
-            border-radius: 30px; 
-            padding: 20px; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
-            overflow-x: auto;
+            background: white; border-radius: 30px; padding: 15px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05); overflow-x: auto; border: 1px solid #eee;
         }
-        table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        th { padding: 25px; text-align: left; font-size: 0.85rem; color: #999; text-transform: uppercase; border-bottom: 2px solid var(--nbs-gray); }
-        td { padding: 25px; border-bottom: 1px solid #f0f0f0; }
+        table { width: 100%; border-collapse: collapse; min-width: 750px; }
+        th { padding: 20px; text-align: left; font-size: 0.8rem; color: #999; text-transform: uppercase; border-bottom: 1px solid #eee; }
+        td { padding: 20px; border-bottom: 1px solid #f9f9f9; font-size: 0.95rem; }
+        
         .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
+        .row-accent td { border-bottom: none; }
+        .price-tag { font-weight: 700; }
+        .price-bad { color: #e74c3c; }
 
         /* --- CONTACT --- */
-        .contact-section { padding: 100px 20px; background: white; }
-        .form-container { max-width: 550px; margin: 0 auto; background: white; padding: 50px; border-radius: 40px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); border: 1px solid #f0f0f0; }
-        input, select { width: 100%; padding: 20px; margin-bottom: 18px; border: 2px solid #eee; border-radius: 18px; font-size: 1rem; box-sizing: border-box; }
-        .btn-submit { width: 100%; background: var(--nbs-green); color: white; border: none; padding: 22px; border-radius: 18px; font-weight: 700; cursor: pointer; }
+        .contact-section { padding: 80px 20px; background: var(--nbs-gray); }
+        .form-container { max-width: 500px; margin: 0 auto; background: white; padding: 40px; border-radius: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        input, select { width: 100%; padding: 18px; margin-bottom: 15px; border: 2px solid #eee; border-radius: 15px; font-size: 1rem; box-sizing: border-box; }
+        .btn-submit { width: 100%; background: var(--nbs-green); color: white; border: none; padding: 20px; border-radius: 15px; font-weight: 700; cursor: pointer; }
 
         footer { background: #111; color: white; padding: 60px 20px; text-align: center; }
-        .legal-note { font-size: 0.75rem; color: #666; max-width: 700px; margin: 40px auto 0; line-height: 1.5; font-style: italic; }
+        .legal-note { font-size: 0.7rem; color: #555; max-width: 700px; margin: 30px auto 0; line-height: 1.4; font-style: italic; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ PACK TOUT INCLUS : Formation + Logement + Mentorat • 15 000 € / an</div>
+<div class="top-bar">✅ TRANSPARENCE : Scolarité + Logement + Activités • 15 000 € / an</div>
 
 <header>
     <div class="logo-container">
         <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
     </div>
-    <div class="campus-label">Prochaines Sessions<br>Avril • Juillet • Octobre • Janvier</div>
+    <div class="campus-label">Sessions de départ<br>Avril • Juillet • Octobre • Janvier</div>
 </header>
 
 <section class="hero">
-    <h1>Étudiez sans limites.</h1>
-    <p>Le seul campus au monde qui inclut votre formation professionnelle*, votre logement et vos loisirs dans un budget maîtrisé.</p>
-    <a href="#contact" class="btn-hero">Vérifier les disponibilités</a>
+    <h1>L'excellence sans frontières.</h1>
+    <p>Comparez les coûts réels d'une année d'étude. Tenerife n'est pas seulement un rêve, c'est le choix le plus rationnel.</p>
+    <a href="#contact" class="btn-hero">Demander le dossier complet</a>
 </section>
 
 <section class="comparatif">
-    <h2 class="section-title">Le Budget 100% Maîtrisé</h2>
-    <p class="section-subtitle">Détail de votre investissement annuel à Tenerife</p>
-    
-    <div class="budget-box">
-        <div class="budget-item"><strong>7 000 €</strong>Scolarité & Masterclass</div>
-        <div class="budget-item"><strong>6 000 €</strong>Hébergement Garanti</div>
-        <div class="budget-item"><strong>1 000 €</strong>Loisirs & Activités</div>
-        <div class="budget-item" style="background: var(--nbs-gold); color: white; border: none;"><strong>1 000 €</strong>Frais Annexes</div>
-    </div>
-
+    <h2 class="section-title">Le Comparatif Réel</h2>
     <div class="table-wrapper">
         <table>
             <thead>
                 <tr>
-                    <th>Ville</th>
-                    <th>Formation</th>
-                    <th>Vie & Logement</th>
-                    <th>Total Estimé / an</th>
+                    <th>Type de Ville (Exemples)</th>
+                    <th>Frais de Scolarité</th>
+                    <th>Vie & Logement (12 mois)</th>
+                    <th>Budget Total / an</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Paris / Lyon</td><td>8 500 €</td><td>11 400 €</td><td style="color:#e74c3c; font-weight:700;">19 900 €</td></tr>
-                <tr><td>Province (Fr)</td><td>7 000 €</td><td>7 200 €</td><td style="color:#e74c3c; font-weight:700;">14 200 €</td></tr>
+                <tr>
+                    <td><strong>Grandes Métropoles</strong><br><small>Paris, Lyon, Marseille</small></td>
+                    <td>8 500 €</td>
+                    <td>12 000 €</td>
+                    <td class="price-tag price-bad">20 500 €</td>
+                </tr>
+                <tr>
+                    <td><strong>Villes Dynamiques</strong><br><small>Nantes, Bordeaux, Rennes</small></td>
+                    <td>7 500 €</td>
+                    <td>9 600 €</td>
+                    <td class="price-tag price-bad">17 100 €</td>
+                </tr>
+                <tr>
+                    <td><strong>Villes Abordables</strong><br><small>Angers, Le Mans, Grenoble</small></td>
+                    <td>7 000 €</td>
+                    <td>8 400 €</td>
+                    <td class="price-tag price-bad">15 400 €</td>
+                </tr>
                 <tr class="row-accent">
-                    <td>TENERIFE (NBS)</td>
-                    <td colspan="2" style="text-align:center;">PACK TOUT INCLUS</td>
-                    <td style="font-size:1.2rem;">15 000 €</td>
+                    <td><strong>TENERIFE (Nomad Business School)</strong><br><small>Campus Exclusif</small></td>
+                    <td>8 000 €</td>
+                    <td>7 000 € <small>(Logis + Activités)</small></td>
+                    <td style="font-size: 1.3rem;">15 000 €</td>
                 </tr>
             </tbody>
         </table>
@@ -183,24 +178,25 @@
 
 <section id="contact" class="contact-section">
     <div class="form-container">
-        <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Dossier d'admission</h2>
+        <h2 style="font-family:'Montserrat'; margin-top:0; text-align:center;">Candidature 2026</h2>
         <form>
             <input type="text" placeholder="Prénom et Nom" required>
             <input type="email" placeholder="Email" required>
             <select required>
-                <option value="">Session souhaitée</option>
+                <option value="">Session de départ</option>
                 <option>Avril 2026</option>
                 <option>Juillet 2026</option>
                 <option>Octobre 2026</option>
+                <option>Janvier 2027</option>
             </select>
-            <button type="submit" class="btn-submit">Demander les accès candidat</button>
+            <button type="submit" class="btn-submit">Recevoir mon dossier</button>
         </form>
     </div>
 </section>
 
 <footer>
     <span style="font-family:'Montserrat'; font-weight:900; font-size:1.5rem;">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
-    <p>© 2026 Campus Tenerife. Tous droits réservés.</p>
+    <p>© 2026 Campus Tenerife.</p>
     <div class="legal-note">
         * Les Ressources Pédagogiques NBS et le Programme Professionnel Exclusif sont actuellement en cours de rédaction finale. Afin de garantir une qualité académique irréprochable, les supports sont temporairement assurés par un prestataire national français reconnu jusqu'à la validation complète de nos propres modules.
     </div>
