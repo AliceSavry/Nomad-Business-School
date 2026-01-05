@@ -160,18 +160,18 @@
         .price-section { padding: 100px 5%; background: white; text-align: center; }
         
         .transparency-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px; max-width: 1200px; margin: 40px auto;
         }
 
         .price-item {
             background: var(--nbs-gray); padding: 35px 25px; border-radius: 30px;
-            border: 1px solid #eee; transition: 0.3s;
+            border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between;
         }
         .price-item:hover { border-color: var(--nbs-gold); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
         .price-item h3 { font-family: 'Montserrat'; color: var(--nbs-blue); margin-top: 0; font-size: 1.1rem; }
-        .price-value { font-size: 2.2rem; font-weight: 900; color: var(--nbs-dark); display: block; margin: 15px 0; }
-        .price-detail { font-size: 0.85rem; color: #666; }
+        .price-value { font-size: 2.2rem; font-weight: 900; color: var(--nbs-dark); display: block; margin: 10px 0; }
+        .price-detail { font-size: 0.85rem; color: #666; margin-bottom: 0; }
         
         .price-item.bonus { border: 2px dashed var(--nbs-green); background: #f0fff4; }
         .price-item.bonus h3 { color: var(--nbs-green); }
@@ -235,7 +235,7 @@
 </head>
 <body>
 
-<div class="top-bar">🎓 TON BTS + LOGEMENT CAUTIONNÉ : JANVIER 2027 • LE BILINGUISME EST OFFERT !</div>
+<div class="top-bar">🎓 TON BTS À TENERIFE : JANVIER 2027 • LE BILINGUISME EST OFFERT !</div>
 
 <header>
     <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
@@ -243,9 +243,9 @@
 </header>
 
 <section class="hero">
-    <h1>Prépare ton BTS au paradis pour le même prix qu'au Mans.</h1>
-    <p>Le bilinguisme ? <span class="highlight">C'est pour nous, c'est cadeau !</span> Profite d'un cursus bilingue et d'un logement sélectionné et cautionné par nos soins sous le soleil de Tenerife.</p>
-    <a href="#contact" class="btn-hero">Choisir ma session 2027</a>
+    <h1>Prépare ton BTS au paradis pour le même prix qu'en France.</h1>
+    <p>Le bilinguisme ? <span class="highlight">C'est cadeau !</span> On t'accompagne de A à Z : de ta scolarité bilingue jusqu'à la sélection de ton logement idéal sous le soleil.</p>
+    <a href="#contact" class="btn-hero">Déposer ma candidature 2027</a>
 </section>
 
 <section class="sessions-container">
@@ -259,7 +259,7 @@
 
 <section class="trust-section">
     <h2 class="section-title">Pourquoi nous faire confiance ?</h2>
-    <p class="section-subtitle">Une structure pensée pour la sérénité des parents et la réussite des étudiants.</p>
+    <p class="section-subtitle">Une structure pensée pour la sérénité des parents et l'autonomie des étudiants.</p>
     
     <div class="flip-grid">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -280,12 +280,12 @@
             <div class="flip-card-inner">
                 <div class="card-front">
                     <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🏠</span>
-                    <h3>Logement de qualité</h3>
-                    <p>Sélectionné et validé par nos soins.</p>
+                    <h3>Coaching Logistique</h3>
+                    <p>On te trouve ton logement idéal.</p>
                 </div>
                 <div class="card-back">
                     <h3>Zéro stress logement</h3>
-                    <p>Nous sélectionnons et validons ton logement pour t'éviter les dossiers complexes et les garants impossibles à trouver. Tu emménages, on s'occupe du reste.</p>
+                    <p>On sélectionne pour toi au moins 3 logements validés, on t'aide pour le contrat et l'administratif local. Tu n'as plus qu'à poser tes valises en toute sécurité.</p>
                 </div>
             </div>
         </div>
@@ -328,36 +328,36 @@
 </section>
 
 <section class="price-section">
-    <h2 class="section-title">Transparence Totale</h2>
-    <p class="section-subtitle">Un budget maîtrisé, optimisé par tes opportunités de stage.</p>
+    <h2 class="section-title">Transparence Budgétaire</h2>
+    <p class="section-subtitle">Nous vous aidons à piloter votre budget pour une année réussie.</p>
     
     <div class="transparency-grid">
         <div class="price-item">
-            <h3>Frais d'Études</h3>
-            <span class="price-value">8 000 €</span>
-            <p class="price-detail">Scolarité, accès IA, Masterclass et bilinguisme offert.</p>
+            <h3>Scolarité Annuelle</h3>
+            <span class="price-value">8 500 €</span>
+            <p class="price-detail">Cours, Masterclass, accès outils IA et Coaching Logistique (recherche de logement et aide administrative) inclus.</p>
         </div>
         <div class="price-item">
-            <h3>Frais de Logement</h3>
-            <span class="price-value">6 000 €</span>
-            <p class="price-detail">Logement sélectionné et cautionné (charges incluses).</p>
+            <h3>Loyer Estimé</h3>
+            <span class="price-value">~ 500 € / mois</span>
+            <p class="price-detail">Loyer moyen constaté (colocation ou studio). À régler directement au propriétaire de votre choix.</p>
         </div>
         <div class="price-item">
-            <h3>Frais de Vie</h3>
-            <span class="price-value">1 000 €</span>
-            <p class="price-detail">Activités, networking et services campus.</p>
+            <h3>Frais de Vie & Campus</h3>
+            <span class="price-value">1 000 € / an</span>
+            <p class="price-detail">Services campus, networking et activités exclusives Nomad.</p>
         </div>
         <div class="price-item bonus">
             <h3>Bonus Stage</h3>
             <span class="price-value">- 500 € / mois</span>
-            <p class="price-detail">Gratification possible selon l'entreprise (non garantie).</p>
+            <p class="price-detail">Gratification moyenne constatée selon l'entreprise d'accueil.</p>
         </div>
     </div>
 
     <div class="total-banner">
-        <div class="total-box"><p>Investissement Annuel</p><h2>15 000 €</h2></div>
+        <div class="total-box"><p>Budget Moyen Annuel</p><h2>15 500 €</h2></div>
         <div style="font-size: 3rem; color: var(--nbs-gold);">➜</div>
-        <div class="total-box"><p>Lissage Mensuel</p><h2>1 250 €</h2></div>
+        <div class="total-box"><p>Lissage Mensuel</p><h2>1 290 €</h2></div>
     </div>
 
     <div class="table-wrapper">
@@ -366,12 +366,12 @@
                 <tr><th>Ville de Référence</th><th>Budget Mensuel Tout Inclus</th><th>Différence Annuelle</th></tr>
             </thead>
             <tbody>
-                <tr><td>Paris / Lyon</td><td>1 700 €</td><td>- 5 400 € / an</td></tr>
-                <tr><td>Nantes / Bordeaux</td><td>1 425 €</td><td>- 2 100 € / an</td></tr>
+                <tr><td>Paris / Lyon</td><td>1 700 €</td><td>- 4 900 € / an</td></tr>
+                <tr><td>Nantes / Bordeaux</td><td>1 425 €</td><td>- 1 600 € / an</td></tr>
                 <tr><td>Le Mans / Angers</td><td>1 280 €</td><td>Même prix + le soleil</td></tr>
                 <tr class="row-accent">
                     <td>TENERIFE (NBS)</td>
-                    <td>1 250 € <span class="bonus-text">Peut descendre à 750 € avec stage rémunéré</span></td>
+                    <td>1 290 € <span class="bonus-text">Peut descendre à 790 € avec stage rémunéré</span></td>
                     <td>Rentabilité Maximale</td>
                 </tr>
             </tbody>
@@ -393,7 +393,7 @@
                 <option value="juillet2027">Juillet 2027</option>
                 <option value="octobre2027">Octobre 2027</option>
             </select>
-            <textarea placeholder="Pourquoi souhaites-tu rejoindre Nomad Business School ?" rows="4"></textarea>
+            <textarea placeholder="Parle-nous de ton projet et de tes attentes..." rows="4"></textarea>
             <button type="submit" class="btn-submit">Recevoir mon dossier</button>
         </form>
     </div>
