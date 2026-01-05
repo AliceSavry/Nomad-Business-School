@@ -69,18 +69,19 @@
 
         .hero h1 { font-family: 'Montserrat'; font-size: 3rem; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
 
-        /* --- FLIP CARDS CORE ENGINE --- */
+        /* --- FLIP CARDS CORE ENGINE (MOBILE FRIENDLY) --- */
         .flip-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             padding: 60px 5%;
         }
 
         .flip-card {
             background-color: transparent;
-            height: 250px;
+            height: 280px;
             perspective: 1000px;
+            cursor: pointer;
         }
 
         .flip-card-inner {
@@ -88,11 +89,12 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.6s;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
-            cursor: pointer;
         }
 
+        /* Classe déclenchée par JS au clic ou par le hover sur PC */
+        .flip-card.flipped .flip-card-inner, 
         .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
@@ -103,31 +105,25 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            border-radius: 20px;
+            border-radius: 24px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 30px;
             box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border: 1px solid #e5e5e7;
         }
 
-        .card-front {
-            background-color: #fff;
-            color: var(--apple-dark);
-        }
+        .card-front { background-color: #fff; color: var(--apple-dark); }
+        .card-back { background-color: var(--nomad-deep); color: white; transform: rotateY(180deg); }
 
-        .card-back {
-            background-color: var(--nomad-deep);
-            color: white;
-            transform: rotateY(180deg);
-        }
+        .card-front h3 { font-family: 'Montserrat'; font-size: 1.3rem; margin-bottom: 10px; }
+        .card-back p { font-size: 0.95rem; line-height: 1.6; margin: 0; }
+        .tap-hint { font-size: 0.7rem; color: #86868b; margin-top: 15px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .card-front h3 { font-family: 'Montserrat'; font-size: 1.3rem; margin: 0; }
-        .card-back p { font-size: 0.95rem; line-height: 1.5; }
-
-        /* --- ADMISSION (FLIP CARDS) --- */
+        /* --- ADMISSION --- */
         .admission { background: var(--apple-gray); padding: 60px 5%; text-align: center; }
         .admission .card-back { background-color: var(--apple-blue); }
 
@@ -148,7 +144,7 @@
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .top-bar { font-size: 0.7rem; }
-            .flip-card { height: 280px; } /* Un peu plus haut sur mobile pour le texte */
+            .flip-card { height: 300px; }
         }
     </style>
 </head>
@@ -168,33 +164,33 @@
 </section>
 
 <section class="flip-grid">
-    <div class="flip-card">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
                 <h3>🏠 Logement Garanti</h3>
-                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Survoler pour plus d'infos</p>
+                <span class="tap-hint">Cliquez pour voir</span>
             </div>
             <div class="card-back">
                 <p>Le toit est inclus. Votre enfant dispose d'une place en <strong>colocation sélectionnée</strong> toute l'année, sans frais de dossier ni garant complexe.</p>
             </div>
         </div>
     </div>
-    <div class="flip-card">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
                 <h3>🤝 Mentorat Elite</h3>
-                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Survoler pour plus d'infos</p>
+                <span class="tap-hint">Cliquez pour voir</span>
             </div>
             <div class="card-back">
                 <p>Un mentor est accessible <strong>tous les jours</strong> pour encadrer les études et assurer la réussite du BTS. Un suivi humain pour ne jamais rester bloqué.</p>
             </div>
         </div>
     </div>
-    <div class="flip-card">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="card-front">
                 <h3>🏄‍♂️ Immersion & Loisirs</h3>
-                <p style="font-size: 0.8rem; color: #666; margin-top: 10px;">Survoler pour plus d'infos</p>
+                <span class="tap-hint">Cliquez pour voir</span>
             </div>
             <div class="card-back">
                 <p>Activités sportives et culturelles hebdomadaires pour favoriser l'intégration et le bilinguisme au sein d'une communauté soudée.</p>
@@ -204,35 +200,38 @@
 </section>
 
 <section class="admission">
-    <h2 style="font-family: 'Montserrat'; font-size: 2rem; margin-bottom: 40px;">Critères d'admissibilité</h2>
-    <div class="flip-grid" style="padding: 0;">
-        <div class="flip-card">
+    <h2 style="font-family: 'Montserrat'; font-size: 2rem; margin-bottom: 20px;">Critères d'admissibilité</h2>
+    <div class="flip-grid" style="padding-top: 20px;">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">ÉTAPE 01</span>
+                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">01</span>
                     <h3>Niveau Bac</h3>
+                    <span class="tap-hint">Voir détails</span>
                 </div>
                 <div class="card-back">
                     <p>Être titulaire d'un Baccalauréat ou équivalent (Niveau 4).</p>
                 </div>
             </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">ÉTAPE 02</span>
+                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">02</span>
                     <h3>Tests d'entrée</h3>
+                    <span class="tap-hint">Voir détails</span>
                 </div>
                 <div class="card-back">
                     <p>Culture générale et étude approfondie des bulletins scolaires pour évaluer le sérieux du candidat.</p>
                 </div>
             </div>
         </div>
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">ÉTAPE 03</span>
+                    <span style="color: var(--apple-blue); font-weight: 900; margin-bottom: 10px;">03</span>
                     <h3>Entretien Oral</h3>
+                    <span class="tap-hint">Voir détails</span>
                 </div>
                 <div class="card-back">
                     <p>Échange de 30 min pour valider la motivation et le projet professionnel avec nos coachs.</p>
@@ -291,7 +290,6 @@
 <section id="contact" class="form-section">
     <div class="form-container">
         <h2 style="font-family: 'Montserrat'; font-size: 1.8rem;">Candidature 2026</h2>
-        <p style="color:#86868b; margin-bottom: 25px;">Recevez votre dossier de sélection sous 24h.</p>
         <form>
             <input type="text" placeholder="Prénom et Nom" required>
             <input type="email" placeholder="Email" required>
