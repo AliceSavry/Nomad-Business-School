@@ -13,6 +13,8 @@
             --nomad-deep: #0a2e52;
             --nomad-accent: #f39c12;
             --glass: rgba(255, 255, 255, 0.7);
+            --danger: #e74c3c;
+            --success: #27ae60;
         }
 
         body {
@@ -50,16 +52,8 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--apple-dark);
-            margin-left: 30px;
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-
         .hero {
-            height: 90vh;
+            height: 85vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('Tenerife1.jpeg');
             background-size: cover;
             background-position: center;
@@ -72,18 +66,18 @@
             padding: 0 5%;
         }
 
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 4.5rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 4rem; font-weight: 900; margin-bottom: 20px; letter-spacing: -2px; }
 
-        section { padding: 100px 10%; }
-        .section-title { font-family: 'Montserrat'; font-size: 3rem; text-align: center; margin-bottom: 10px; letter-spacing: -1px; }
-        .section-subtitle { text-align: center; font-size: 1.4rem; color: #86868b; margin-bottom: 60px; }
+        section { padding: 80px 10%; }
+        .section-title { font-family: 'Montserrat'; font-size: 2.8rem; text-align: center; margin-bottom: 10px; letter-spacing: -1px; }
+        .section-subtitle { text-align: center; font-size: 1.2rem; color: #86868b; margin-bottom: 50px; }
 
         /* --- Section Admissibilité --- */
         .admissibilite-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .step-card {
@@ -92,34 +86,60 @@
             border-radius: 24px;
             text-align: center;
             border: 1px solid #e5e5e7;
-            transition: all 0.3s ease;
         }
 
-        .step-card:hover { border-color: var(--apple-blue); transform: translateY(-5px); }
-        .step-number { color: var(--apple-blue); font-weight: 700; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; display: block; }
-        .step-card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--nomad-deep); }
-        .step-card p { color: #86868b; line-height: 1.6; }
+        .step-number { color: var(--apple-blue); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; display: block; }
+        
+        .process-speed {
+            background: #fdf2e9;
+            color: var(--nomad-accent);
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 20px;
+        }
 
-        /* --- Flip Cards & Table (Inchangés mais stylisés) --- */
-        .grid-logistique { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .flip-card { height: 350px; cursor: pointer; perspective: 1000px; }
+        /* --- Tableau Comparatif Apple Style --- */
+        .comparatif-section { background: var(--apple-gray); border-radius: 50px; margin: 0 5%; }
+        
+        .table-container { overflow-x: auto; }
+        
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        th { font-weight: 600; color: #86868b; padding-bottom: 15px; text-transform: uppercase; font-size: 0.75rem; }
+
+        td { background: white; padding: 25px; text-align: center; font-size: 1rem; }
+        td:first-child { border-radius: 15px 0 0 15px; text-align: left; font-weight: 600; padding-left: 30px; }
+        td:last-child { border-radius: 0 15px 15px 0; font-weight: 700; }
+
+        .row-highlight td {
+            background: var(--nomad-deep);
+            color: white;
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Flip Cards --- */
+        .grid-logistique { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .flip-card { height: 320px; cursor: pointer; perspective: 1000px; }
         .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
         .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
-        .front, .back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-        .front { background: var(--apple-gray); }
+        .front, .back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 24px; padding: 35px; display: flex; flex-direction: column; justify-content: center; box-sizing: border-box; }
+        .front { background: white; border: 1px solid #e5e5e7; }
         .back { background: var(--nomad-deep); color: white; transform: rotateY(180deg); }
 
-        .comparatif { background: var(--apple-gray); border-radius: 50px; margin: 50px 5%; }
-        table { width: 100%; border-collapse: separate; border-spacing: 0 15px; }
-        td { background: white; padding: 30px; text-align: center; }
-        .highlight td { background: var(--nomad-deep); color: white; }
-
-        .form-section { background: white; text-align: center; }
+        /* --- Formulaire --- */
+        .form-section { text-align: center; }
         form { max-width: 500px; margin: 0 auto; }
-        input, select, textarea { width: 100%; padding: 20px; margin-bottom: 15px; border: 1px solid #d2d2d7; border-radius: 12px; background: var(--apple-gray); font-size: 1rem; }
+        input, select { width: 100%; padding: 20px; margin-bottom: 15px; border: 1px solid #d2d2d7; border-radius: 12px; background: var(--apple-gray); font-size: 1rem; }
         .submit-btn { background: var(--apple-blue); color: white; border: none; padding: 20px; border-radius: 12px; width: 100%; font-weight: 600; cursor: pointer; }
 
-        footer { padding: 80px 10%; background: var(--apple-dark); color: #86868b; text-align: center; }
+        footer { padding: 60px 10%; background: var(--apple-dark); color: #86868b; text-align: center; }
     </style>
 </head>
 <body>
@@ -128,89 +148,123 @@
 
 <header>
     <div style="font-family: 'Montserrat'; font-weight: 900; font-size: 1.4rem; letter-spacing: -1px;">NOMAD <span style="color:var(--apple-blue)">BUSINESS SCHOOL</span></div>
-    <nav class="nav-links">
-        <a href="#concept">Concept</a>
-        <a href="#selection">Admission</a>
-        <a href="#comparatif">Tarifs</a>
-        <a href="#contact" style="background: var(--apple-dark); color: white; padding: 10px 20px; border-radius: 20px;">Postuler</a>
-    </nav>
+    <div style="font-size: 0.9rem; font-weight: 500;">CAMPUS TENERIFE</div>
 </header>
 
 <section class="hero">
-    <h1>L'excellence sous le soleil.</h1>
-    <p>Un campus bilingue, un logement garanti et un mentorat quotidien.</p>
-    <a href="#contact" style="background: var(--apple-blue); color: white; padding: 18px 35px; text-decoration: none; border-radius: 30px; font-weight: 500;">Découvrir l'admissibilité 2026</a>
+    <h1>Étudiez. Voyagez. Réussissez.</h1>
+    <p>Le seul programme de BTS en immersion totale aux Canaries.</p>
+    <a href="#contact" style="background: white; color: var(--apple-dark); padding: 18px 35px; text-decoration: none; border-radius: 30px; font-weight: 600;">Postuler pour 2026</a>
 </section>
 
 <section id="concept">
-    <h2 class="section-title">La fin des frais cachés.</h2>
-    <p class="section-subtitle">Concentrez-vous sur l'essentiel, nous gérons le reste.</p>
+    <h2 class="section-title">L'expérience Tout Inclus.</h2>
+    <p class="section-subtitle">Survolez les cartes pour découvrir les détails du programme.</p>
     <div class="grid-logistique">
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="front"><h3>🏠 Logement Garanti</h3><p>Une colocation sélectionnée, prête à votre arrivée.</p></div>
-                <div class="back"><h3>Sérénité Totale</h3><ul><li>Wifi & charges inclus</li><li>Contrat 12 mois sécurisé</li><li>Zéro garant requis</li></ul></div>
+                <div class="front"><h3>🏠 Logement Garanti</h3><p>Une colocation premium déjà réservée pour vous.</p></div>
+                <div class="back"><h3>Logistique</h3><ul><li>Charges & Wifi inclus</li><li>Contrat 12 mois</li><li>Zéro garant requis</li></ul></div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="front"><h3>🤝 Mentorat Elite</h3><p>Un accompagnement quotidien vers votre diplôme.</p></div>
-                <div class="back"><h3>Suivi 360°</h3><ul><li>Mentor accessible 7j/7</li><li>Séminaire mensuel présentiel</li><li>Coaching carrière</li></ul></div>
+                <div class="front"><h3>🤝 Mentorat Nomad</h3><p>Un coach personnel accessible quotidiennement.</p></div>
+                <div class="back"><h3>Réussite</h3><ul><li>Support 7j/7</li><li>Séminaire mensuel</li><li>Suivi individuel</li></ul></div>
             </div>
         </div>
         <div class="flip-card">
             <div class="flip-card-inner">
-                <div class="front"><h3>🌊 Immersion</h3><p>Apprendre l'anglais et l'espagnol en vivant l'aventure.</p></div>
-                <div class="back"><h3>Expérience Unique</h3><ul><li>Surf, Yoga & Rando</li><li>Immersion bilingue</li><li>Networking international</li></ul></div>
+                <div class="front"><h3>🏄‍♂️ Immersion Surf</h3><p>Apprenez l'espagnol et l'anglais sur le terrain.</p></div>
+                <div class="back"><h3>Aventure</h3><ul><li>Activités hebdomadaires</li><li>Communauté soudée</li><li>Cadre paradisiaque</li></ul></div>
             </div>
         </div>
     </div>
 </section>
 
 <section id="selection" style="background-color: var(--apple-gray); border-radius: 50px; margin: 0 5%;">
-    <h2 class="section-title">Votre parcours de sélection.</h2>
-    <p class="section-subtitle">Nous recherchons des profils audacieux et engagés.</p>
+    <h2 class="section-title">Critères d'admission.</h2>
+    <p class="section-subtitle">Un processus sélectif pour une cohorte d'exception.</p>
     
     <div class="admissibilite-container">
         <div class="step-card">
-            <span class="step-number">Étape 01</span>
-            <h3>Niveau Académique</h3>
-            <p>Être titulaire d'un Baccalauréat (Niveau 4) ou équivalent au moment de la rentrée 2026.</p>
+            <span class="step-number">01. Académique</span>
+            <h3>Niveau Bac</h3>
+            <p>Ouverture aux titulaires du Baccalauréat (Niveau 4) ou diplôme équivalent.</p>
         </div>
         <div class="step-card">
-            <span class="step-number">Étape 02</span>
-            <h3>Tests d'Admission</h3>
-            <p>Évaluation de la culture générale et analyse rigoureuse des bulletins de notes (Sérieux & Assiduité).</p>
+            <span class="step-number">02. Aptitudes</span>
+            <h3>Tests Nomad</h3>
+            <p>Culture générale et analyse du dossier scolaire (assiduité et bulletins).</p>
         </div>
         <div class="step-card">
-            <span class="step-number">Étape 03</span>
+            <span class="step-number">03. Motivation</span>
             <h3>Entretien Oral</h3>
-            <p>Échange de 30 minutes pour valider votre motivation et votre adéquation avec l'esprit Nomad.</p>
+            <p>Échange stratégique sur votre projet professionnel et votre autonomie.</p>
         </div>
+    </div>
+    <div style="text-align:center;">
+        <p class="process-speed">⚡ Réponse d'admissibilité sous 48 heures après entretien.</p>
     </div>
 </section>
 
-<section id="comparatif" class="comparatif">
-    <h2 class="section-title">Le calcul est simple.</h2>
+<section id="comparatif" class="comparatif-section">
+    <h2 class="section-title">Le prix de la liberté.</h2>
+    <p class="section-subtitle">Comparaison du budget annuel réel (Formation + Logement + Vie).</p>
+    
     <div class="table-container">
         <table>
-            <thead><tr><th>Destination</th><th>Formation</th><th>Vie & Logement</th><th>Total / An</th></tr></thead>
+            <thead>
+                <tr>
+                    <th>Type de ville</th>
+                    <th>Exemples</th>
+                    <th>Formation</th>
+                    <th>Logement & Vie*</th>
+                    <th>Total / an</th>
+                </tr>
+            </thead>
             <tbody>
-                <tr><td>Villes Françaises</td><td>8 500 €</td><td>11 400 €</td><td style="color:var(--danger); font-weight: 600;">19 900 €</td></tr>
-                <tr class="highlight"><td>TENERIFE (Nomad)</td><td colspan="2">PACK TOUT INCLUS</td><td style="font-size: 1.4rem;">13 500 €</td></tr>
+                <tr>
+                    <td>Grandes Métropoles</td>
+                    <td>Paris, Bordeaux, Marseille</td>
+                    <td>8 500 €</td>
+                    <td>11 400 €</td>
+                    <td style="color:var(--danger)">19 900 €</td>
+                </tr>
+                <tr>
+                    <td>Villes Moyennes</td>
+                    <td>Nantes, Rennes, Toulouse</td>
+                    <td>7 500 €</td>
+                    <td>8 500 €</td>
+                    <td style="color:var(--danger)">16 000 €</td>
+                </tr>
+                <tr>
+                    <td>Villes "Abordables"</td>
+                    <td>Angers, Le Mans, Grenoble</td>
+                    <td>7 000 €</td>
+                    <td>7 200 €</td>
+                    <td style="color:var(--danger)">14 200 €</td>
+                </tr>
+                <tr class="row-highlight">
+                    <td>TENERIFE (Nomad)</td>
+                    <td>Santa Cruz de Tenerife</td>
+                    <td colspan="2">PACK TOUT INCLUS</td>
+                    <td>13 500 €</td>
+                </tr>
             </tbody>
         </table>
+        <p style="text-align:center; font-size: 0.75rem; color: #86868b; margin-top: 25px;">*Estimation basée sur 12 mois de loyer, charges, frais de dossier, coaching et loisirs. Hors alimentation.</p>
     </div>
 </section>
 
 <section id="contact" class="form-section">
-    <h2 class="section-title">Prêt pour Tenerife ?</h2>
-    <p class="section-subtitle">Vérifiez votre éligibilité en 2 minutes.</p>
+    <h2 class="section-title">Rejoignez l'aventure.</h2>
+    <p class="section-subtitle">Dernières places disponibles pour la session Septembre 2026.</p>
     <form>
-        <input type="text" placeholder="Nom complet de l'étudiant" required>
-        <input type="email" placeholder="Email de contact" required>
+        <input type="text" placeholder="Prénom et Nom" required>
+        <input type="email" placeholder="Email" required>
         <select required>
-            <option value="">BTS visé</option>
+            <option value="">Filière BTS souhaitée</option>
             <option>BTS Tourisme</option>
             <option>BTS Commerce International</option>
             <option>BTS Gestion de la PME</option>
@@ -221,7 +275,7 @@
 
 <footer>
     <strong>NOMAD BUSINESS SCHOOL</strong>
-    <p>© 2026 Nomad Business School Tenerife. <br>L'excellence académique en toute liberté.</p>
+    <p>© 2026 Campus Tenerife. <br>L'excellence académique sans frontières.</p>
 </footer>
 
 </body>
