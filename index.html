@@ -21,8 +21,10 @@
             background: white;
             color: var(--nbs-dark);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* --- NAVIGATION --- */
         .top-bar {
             background: var(--nbs-green);
             color: white;
@@ -49,187 +51,270 @@
             height: 80px;
         }
 
-        .logo-img { height: 65px; width: auto; display: block; }
+        .logo-img { height: 65px; width: auto; display: block; transition: 0.3s; }
 
         .campus-label {
-            font-family: 'Montserrat';
-            font-size: 0.7rem;
-            font-weight: 900;
-            color: var(--nbs-gold);
-            text-align: right;
-            line-height: 1.2;
-            text-transform: uppercase;
+            font-family: 'Montserrat'; font-size: 0.7rem; font-weight: 900;
+            color: var(--nbs-gold); text-align: right; line-height: 1.2; text-transform: uppercase;
         }
 
+        /* --- HERO --- */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('Tenerife1.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('Tenerife1.jpeg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
         }
 
-        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; margin: 0; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.3rem); margin: 20px 0 35px; max-width: 800px; }
+        .hero h1 { font-family: 'Montserrat'; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; margin: 0; line-height: 1.1; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.5rem); margin: 25px 0 40px; max-width: 900px; font-weight: 400; }
+        .hero .highlight { color: var(--nbs-gold); border-bottom: 3px solid var(--nbs-gold); }
 
         .btn-hero {
-            background: var(--nbs-gold);
-            color: white;
-            padding: 20px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4);
+            background: var(--nbs-gold); color: white; padding: 22px 55px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 1.1rem;
+            box-shadow: 0 15px 30px rgba(217, 146, 43, 0.4); transition: 0.3s;
         }
 
-        /* --- SAUCISSONNAGE MENSUEL --- */
-        .monthly-breakdown { padding: 60px 5%; background: var(--nbs-gray); text-align: center; }
-        .section-title { font-family: 'Montserrat'; font-weight: 900; font-size: 2rem; margin-bottom: 10px; color: var(--nbs-green); }
-        .section-subtitle { color: #666; margin-bottom: 40px; }
-
-        .price-circle {
-            background: white;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 40px;
-            border: 8px solid var(--nbs-gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .price-circle .big-price { font-family: 'Montserrat'; font-size: 3.5rem; font-weight: 900; color: var(--nbs-dark); line-height: 1; }
-        .price-circle .per-month { font-size: 1.2rem; color: var(--nbs-gold); font-weight: 700; margin-top: 5px; }
-
-        .monthly-grid {
+        /* --- SESSIONS TRIMESTRIELLES --- */
+        .sessions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 40px 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
         }
-        .monthly-item {
+        .session-card {
             background: white;
             padding: 25px;
             border-radius: 20px;
-            border: 1px solid #eee;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--nbs-blue);
         }
-        .monthly-item strong { display: block; font-size: 1.5rem; color: var(--nbs-blue); margin-bottom: 5px; font-family: 'Montserrat'; }
+        .session-card h4 { margin: 0; color: var(--nbs-blue); font-family: 'Montserrat'; }
+        .session-card span { font-size: 0.8rem; color: #888; text-transform: uppercase; }
 
-        /* --- COMPARATIF --- */
-        .comparatif { padding: 80px 5%; background: white; }
-        .table-wrapper { 
-            background: white; border-radius: 30px; padding: 15px; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05); overflow-x: auto; border: 1px solid #eee;
+        /* --- FACTEURS CLÉS (FLIP) --- */
+        .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; margin: 80px 0 10px; color: var(--nbs-green); }
+        .section-subtitle { text-align: center; color: #666; margin-bottom: 50px; padding: 0 20px; }
+
+        .flip-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px; padding: 0 5% 80px;
         }
-        table { width: 100%; border-collapse: collapse; min-width: 750px; }
-        th { padding: 20px; text-align: left; font-size: 0.8rem; color: #999; text-transform: uppercase; border-bottom: 1px solid #eee; }
-        td { padding: 20px; border-bottom: 1px solid #f9f9f9; font-size: 0.95rem; }
+        .flip-card { height: 400px; perspective: 1000px; cursor: pointer; }
+        .flip-card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); transform-style: preserve-3d;
+        }
+        .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+        .card-front, .card-back {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden;
+            border-radius: 40px; padding: 45px; box-sizing: border-box;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+        .card-front { background: white; border: 1px solid #eee; }
+        .card-back { transform: rotateY(180deg); color: white; }
+        .flip-card:nth-child(1) .card-back { background: var(--nbs-blue); }
+        .flip-card:nth-child(2) .card-back { background: var(--nbs-green); }
+        .flip-card:nth-child(3) .card-back { background: var(--nbs-gold); }
+
+        /* --- ADMISSIONS --- */
+        .admissions { background: var(--nbs-gray); padding: 100px 5%; }
+        .step-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px; max-width: 1200px; margin: 0 auto;
+        }
+        .step-card {
+            background: white; padding: 40px; border-radius: 30px; position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+        .step-num {
+            position: absolute; top: -25px; left: 40px; background: var(--nbs-gold);
+            color: white; width: 50px; height: 50px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem;
+        }
+
+        /* --- PRIX & COMPARATIF --- */
+        .price-section { padding: 100px 5%; text-align: center; }
+        .price-circle {
+            background: white; width: 280px; height: 280px; border-radius: 50%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            margin: 0 auto 50px; border: 10px solid var(--nbs-gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+        .big-price { font-family: 'Montserrat'; font-size: 3.5rem; font-weight: 900; color: var(--nbs-dark); line-height: 1; }
+        .per-month { font-size: 1.2rem; color: var(--nbs-gold); font-weight: 700; margin-top: 10px; }
+
+        .table-wrapper { 
+            max-width: 1000px; margin: 50px auto; background: white; border-radius: 40px; padding: 20px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.05); overflow-x: auto;
+        }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { padding: 25px; text-align: left; color: #999; text-transform: uppercase; font-size: 0.8rem; border-bottom: 2px solid var(--nbs-gray); }
+        td { padding: 25px; border-bottom: 1px solid #f0f0f0; }
         .row-accent { background: var(--nbs-blue); color: white; font-weight: 700; }
 
-        footer { background: #111; color: white; padding: 60px 20px; text-align: center; }
-        .legal-note { font-size: 0.7rem; color: #555; max-width: 700px; margin: 30px auto 0; line-height: 1.4; font-style: italic; }
+        /* --- FORMULAIRE --- */
+        .contact-section { padding: 100px 5%; background: var(--nbs-gray); }
+        .form-container { 
+            max-width: 600px; margin: 0 auto; background: white; padding: 60px; 
+            border-radius: 50px; box-shadow: 0 40px 80px rgba(0,0,0,0.1); 
+        }
+        input, select { width: 100%; padding: 22px; margin-bottom: 20px; border: 2px solid #eee; border-radius: 20px; font-size: 1rem; box-sizing: border-box; }
+        .btn-submit { width: 100%; background: var(--nbs-green); color: white; border: none; padding: 25px; border-radius: 20px; font-weight: 900; font-size: 1.3rem; cursor: pointer; transition: 0.3s; }
+
+        /* --- FOOTER --- */
+        footer { background: #111; color: white; padding: 100px 5% 50px; text-align: center; }
+        .legal-note { font-size: 0.75rem; color: #444; max-width: 900px; margin: 60px auto 0; line-height: 1.6; font-style: italic; text-align: justify; border-top: 1px solid #222; padding-top: 30px; }
     </style>
 </head>
 <body>
 
-<div class="top-bar">☀️ RENTRÉE 2026 : Formation + Logement à Tenerife pour 1 250 € / mois Tout Inclus</div>
+<div class="top-bar">🎓 SESSION 2026 : Formation + Logement Premium à Tenerife • 1 250 € / mois Tout Inclus</div>
 
 <header>
-    <div class="logo-container">
-        <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
-    </div>
-    <div class="campus-label">Prochaines Sessions<br>Avril • Juillet • Octobre • Janvier</div>
+    <img src="Logo NBS.jpg" alt="Nomad Business School" class="logo-img">
+    <div class="campus-label">Campus International<br>Santa Cruz de Tenerife</div>
 </header>
 
 <section class="hero">
-    <h1>L'excellence accessible.</h1>
-    <p>Le premier pack "Études & Vie" à prix fixe mensuel. Sans garant, sans caution, sans surprise.</p>
-    <a href="#contact" class="btn-hero">Déposer un dossier 2026</a>
+    <h1>Étudier au paradis pour le prix d'un studio au Mans ?</h1>
+    <p>Rejoignez le seul campus qui inclut votre <span class="highlight">logement premium</span>, votre <span class="highlight">cursus pro*</span> et votre <span class="highlight">immersion bilingue</span> pour un budget 100% maîtrisé.</p>
+    <a href="#contact" class="btn-hero">Postuler maintenant</a>
 </section>
 
-<section class="monthly-breakdown">
-    <h2 class="section-title">Tout inclus pour le prix d'un loyer</h2>
-    <p class="section-subtitle">Détail de votre abonnement "Réussite" (base 12 mois)</p>
-    
+<section class="sessions-grid">
+    <div class="session-card"><span>Trimestre 1</span><h4>AVRIL</h4></div>
+    <div class="session-card"><span>Trimestre 2</span><h4>JUILLET</h4></div>
+    <div class="session-card"><span>Trimestre 3</span><h4>OCTOBRE</h4></div>
+    <div class="session-card"><span>Trimestre 4</span><h4>JANVIER</h4></div>
+</section>
+
+<h2 class="section-title">Facteurs clés de succès</h2>
+<p class="section-subtitle">Pourquoi nos étudiants réussissent mieux qu'ailleurs.</p>
+<section class="flip-grid">
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 4rem;">🌍</span>
+                <h3>Immersion Bilingue</h3>
+                <p>Ne vous contentez pas d'apprendre, vivez la langue.</p>
+            </div>
+            <div class="card-back">
+                <h3>Native Experience</h3>
+                <p>En vivant sur un campus international et en suivant nos Masterclass, vous pratiquez l'anglais et l'espagnol quotidiennement dans un contexte business réel.</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 4rem;">🏠</span>
+                <h3>Logement Garanti</h3>
+                <p>Oubliez la galère des dossiers et des garants.</p>
+            </div>
+            <div class="card-back">
+                <h3>Coloc' de Standing</h3>
+                <p>Une place en colocation premium est réservée d'office. Électricité, eau et fibre inclus. Vous arrivez, vous posez vos valises, vous étudiez.</p>
+            </div>
+        </div>
+    </div>
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="card-front">
+                <span style="font-size: 4rem;">📂</span>
+                <h3>Ressources NBS*</h3>
+                <p>Une pédagogie orientée 100% résultats.</p>
+            </div>
+            <div class="card-back">
+                <h3>Contenu Exclusif</h3>
+                <p>Accédez à nos modules de pointe : Intelligence Artificielle, Marketing Digital et Growth Hacking, mis à jour chaque trimestre.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="admissions">
+    <h2 class="section-title">Conditions d'admission</h2>
+    <div class="step-grid">
+        <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>Niveau d'études</h3>
+            <p>Être titulaire d'un Baccalauréat ou d'un titre RNCP de niveau 4.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>Dossier de candidature</h3>
+            <p>Analyse de votre parcours et lettre de motivation pour le nomadisme digital.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>Entretien visio</h3>
+            <p>Échange de 30 minutes pour valider votre mindset et votre projet.</p>
+        </div>
+    </div>
+</section>
+
+<section class="price-section">
+    <h2 class="section-title">Transparence totale</h2>
     <div class="price-circle">
         <span class="big-price">1 250 €</span>
-        <span class="per-month">par mois</span>
+        <span class="per-month">Tout inclus / mois</span>
     </div>
-
-    <div class="monthly-grid">
-        <div class="monthly-item">
-            <strong>667 €</strong>
-            <small>Scolarité & Masterclass</small>
-        </div>
-        <div class="monthly-item">
-            <strong>500 €</strong>
-            <small>Loyer Premium (Charges incluses)</small>
-        </div>
-        <div class="monthly-item">
-            <strong>83 €</strong>
-            <small>Budget Loisirs & Activités</small>
-        </div>
-    </div>
-</section>
-
-<section class="comparatif">
-    <h2 class="section-title">Comparatif Budget Mensuel</h2>
+    
     <div class="table-wrapper">
         <table>
             <thead>
-                <tr>
-                    <th>Localisation (Exemples)</th>
-                    <th>Coût Mensuel Moyen</th>
-                    <th>Services Inclus</th>
-                    <th>Écart avec Tenerife</th>
-                </tr>
+                <tr><th>Ville Référence</th><th>Budget Mensuel</th><th>Services</th><th>Économie / an</th></tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><strong>Paris / Lyon</strong></td>
-                    <td style="color:#e74c3c; font-weight:700;">1 700 € / mois</td>
-                    <td>Scolarité + Logement (seul)</td>
-                    <td>+ 450 € / mois</td>
-                </tr>
-                <tr>
-                    <td><strong>Nantes / Bordeaux</strong></td>
-                    <td style="color:#e74c3c; font-weight:700;">1 425 € / mois</td>
-                    <td>Scolarité + Logement (seul)</td>
-                    <td>+ 175 € / mois</td>
-                </tr>
-                <tr>
-                    <td><strong>Angers / Le Mans</strong></td>
-                    <td style="color:#e74c3c; font-weight:700;">1 280 € / mois</td>
-                    <td>Scolarité + Logement (seul)</td>
-                    <td>+ 30 € / mois</td>
-                </tr>
-                <tr class="row-accent">
-                    <td><strong>TENERIFE (NBS)</strong></td>
-                    <td style="font-size: 1.2rem;">1 250 € / mois</td>
-                    <td>Scolarité + Logis + Loisirs</td>
-                    <td>Le meilleur rapport Qualité/Prix</td>
-                </tr>
+                <tr><td>Paris / Lyon</td><td>1 700 €</td><td>Études + Loyer seul</td><td>+ 5 400 €</td></tr>
+                <tr><td>Nantes / Bordeaux</td><td>1 425 €</td><td>Études + Loyer seul</td><td>+ 2 100 €</td></tr>
+                <tr><td>Angers / Le Mans</td><td>1 280 €</td><td>Études + Loyer seul</td><td>+ 360 €</td></tr>
+                <tr class="row-accent"><td>TENERIFE (NBS)</td><td>1 250 €</td><td>Études + Logis + Activités</td><td>Sérénité Totale</td></tr>
             </tbody>
         </table>
     </div>
 </section>
 
+<section id="contact" class="contact-section">
+    <div class="form-container">
+        <h2 style="font-family:'Montserrat'; text-align:center; margin-bottom:40px;">Dossier d'inscription 2026</h2>
+        <form>
+            <input type="text" placeholder="Nom Complet" required>
+            <input type="email" placeholder="Email de contact" required>
+            <select required>
+                <option value="">Choisir ma session de départ</option>
+                <option>Session Avril 2026</option>
+                <option>Session Juillet 2026</option>
+                <option>Session Octobre 2026</option>
+                <option>Session Janvier 2027</option>
+            </select>
+            <button type="submit" class="btn-submit">Accéder au dossier</button>
+        </form>
+    </div>
+</section>
+
 <footer>
-    <span style="font-family:'Montserrat'; font-weight:900; font-size:1.5rem;">NOMAD <span style="color:var(--nbs-blue)">BUSINESS SCHOOL</span></span>
-    <p>© 2026 Campus Tenerife. L'excellence académique sous le soleil des Canaries.</p>
+    <span style="font-family:'Montserrat'; font-weight:900; font-size:2rem; display:block; margin-bottom:20px;">NOMAD BUSINESS SCHOOL</span>
+    <p>© 2026 Campus Tenerife. Vivez le futur de l'éducation.</p>
     <div class="legal-note">
         * Les Ressources Pédagogiques NBS et le Programme Professionnel Exclusif sont actuellement en cours de rédaction finale. Afin de garantir une qualité académique irréprochable, les supports sont temporairement assurés par un prestataire national français reconnu jusqu'à la validation complète de nos propres modules.
     </div>
 </footer>
+
+<script>
+    // Interaction Flip Cards
+    function toggleFlip(card) {
+        card.classList.toggle('flipped');
+    }
+</script>
 
 </body>
 </html>
