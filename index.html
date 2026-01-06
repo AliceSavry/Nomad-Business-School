@@ -26,7 +26,7 @@
 
         /* --- NAVIGATION & TOP BAR --- */
         .top-bar {
-            background: var(--nbs-gold); /* Changement couleur pour urgence */
+            background: var(--nbs-gold);
             color: white;
             text-align: center;
             padding: 12px;
@@ -68,8 +68,8 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 85vh;
-            /* Placeholder image, remplacez par votre photo Tenerife */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1590089415225-401eb6b9e22e?q=80&w=2070&auto=format&fit=crop'); 
+            /* CORRECTION ICI : Lien vers votre image locale */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('Tenerife1.jpeg'); 
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; padding: 0 20px;
@@ -84,8 +84,6 @@
             font-size: clamp(1.1rem, 2vw, 1.5rem); margin: 25px 0 40px; 
             max-width: 850px; font-weight: 400; 
         }
-
-        .hero .highlight { color: var(--nbs-gold); font-weight: 900; border-bottom: 3px solid var(--nbs-gold); }
 
         .btn-hero {
             background: var(--nbs-green); color: white; padding: 22px 55px; border-radius: 50px;
@@ -124,7 +122,7 @@
         .session-box h4 { margin: 0; font-family: 'Montserrat'; font-size: 1.2rem; color: var(--nbs-dark); }
         .session-box.urgent span { color: var(--nbs-gold); }
 
-        /* --- SECTION POURQUOI NOUS FAIRE CONFIANCE --- */
+        /* --- TRUST & SERVICES SECTION --- */
         .trust-section { padding: 100px 5%; background: white; }
         .section-title { text-align: center; font-family: 'Montserrat'; font-weight: 900; font-size: 2.5rem; margin-bottom: 10px; color: var(--nbs-dark); }
         .section-subtitle { text-align: center; color: #666; margin-bottom: 60px; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; }
@@ -152,28 +150,32 @@
         .flip-card:nth-child(2) .card-back { background: var(--nbs-gold); }
         .flip-card:nth-child(3) .card-back { background: var(--nbs-green); }
 
-        /* --- SECTION MODEL FLEXIBLE --- */
-        .admissions { background: var(--nbs-gray); padding: 100px 5%; }
-        
-        .features-grid {
-             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-             gap: 40px; max-width: 1200px; margin: 50px auto;
+        /* --- SECTION SERVICES COMPLETS --- */
+        .services-full { background: #fdfdfd; padding: 100px 5%; border-top: 1px solid #eee; }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px; max-width: 1200px; margin: 50px auto;
         }
-        .feature-card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .feature-card h3 { font-family: 'Montserrat'; color: var(--nbs-dark); margin-top: 0; }
-        .feature-card p { color: #666; font-size: 0.95rem; }
+        .service-block {
+            background: white; padding: 40px; border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid #f0f0f0;
+        }
+        .service-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        .service-block h3 { font-family: 'Montserrat'; color: var(--nbs-dark); margin-top: 0; font-size: 1.4rem; }
+        .service-list { list-style: none; padding: 0; margin-top: 20px; }
+        .service-list li { 
+            margin-bottom: 12px; padding-left: 25px; position: relative; color: #555; font-size: 0.95rem; 
+        }
+        .service-list li::before {
+            content: '➜'; color: var(--nbs-green); position: absolute; left: 0; font-weight: bold;
+        }
 
-        /* --- SECTION ABONNEMENT (PRICING) --- */
+        /* --- SECTION PRICE --- */
         .price-section { padding: 100px 5%; background: white; text-align: center; }
-        
         .sub-card {
             background: linear-gradient(145deg, #1d1d1f, #2a2a2c);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 50px;
-            max-width: 500px;
-            margin: 50px auto;
-            position: relative;
+            color: white; padding: 60px 40px; border-radius: 50px;
+            max-width: 500px; margin: 50px auto; position: relative;
             box-shadow: 0 30px 60px rgba(0,0,0,0.2);
         }
         .sub-tag {
@@ -190,7 +192,7 @@
         .check-item { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.1rem; }
         .check-icon { color: var(--nbs-green); margin-right: 15px; font-weight: 900; }
 
-        /* --- CONTACT & FORMULAIRE --- */
+        /* --- FORMULAIRE --- */
         .contact-section { padding: 100px 5%; background: var(--nbs-gray); }
         .form-container { 
             max-width: 700px; margin: 0 auto; background: white; padding: 80px; 
@@ -202,7 +204,6 @@
             width: 100%; padding: 24px; margin-bottom: 25px; border: 1px solid #eee; background: #f9f9f9;
             border-radius: 20px; font-size: 1.1rem; box-sizing: border-box; font-family: inherit;
         }
-        
         .btn-submit { 
             width: 100%; background: var(--nbs-dark); color: white; border: none; 
             padding: 25px; border-radius: 20px; font-weight: 900; font-size: 1.4rem; 
@@ -210,27 +211,22 @@
         }
         .btn-submit:hover { background: var(--nbs-gold); transform: scale(1.02); }
 
-        /* --- FOOTER --- */
         footer { background: #111; color: white; padding: 100px 5% 60px; text-align: center; }
-        .footer-logo { font-family: 'Montserrat'; font-weight: 900; font-size: 2.2rem; display: block; margin-bottom: 20px; }
         .legal-note { 
             font-size: 0.75rem; color: #555; max-width: 900px; margin: 70px auto 0; 
-            line-height: 1.7; text-align: justify; border-top: 1px solid #222; 
-            padding-top: 40px; 
+            line-height: 1.7; text-align: justify; border-top: 1px solid #222; padding-top: 40px; 
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .form-container { padding: 40px 20px; }
             .sub-card { padding: 40px 20px; }
-            .sub-price { font-size: 2.8rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar">🔥 PLACES LIMITÉES : REJOIGNEZ LA RENTRÉE DE AVRIL OU JUILLET 2026 !</div>
+<div class="top-bar">🔥 PLACES LIMITÉES : CANDIDATURES OUVERTES POUR LA RENTRÉE D'AVRIL 2026 !</div>
 
 <header>
     <a href="#" class="logo-text">NOMAD<span style="color:var(--nbs-blue);">CAMPUS</span></a>
@@ -239,7 +235,7 @@
 
 <section class="hero">
     <h1>Ne rate pas ton année.<br>Valide ton BTS au soleil.</h1>
-    <p>L'alternative aux amphis bondés : Un coaching premium, un cadre de vie incroyable et ton diplôme d'État en poche.</p>
+    <p>L'alternative aux amphis bondés : Un coaching premium, un réseau d'entreprises locales et ton diplôme d'État en poche.</p>
     <a href="#contact" class="btn-hero">Candidater pour Avril 2026</a>
 </section>
 
@@ -254,7 +250,7 @@
 
 <section class="trust-section">
     <h2 class="section-title">L'École de la Liberté</h2>
-    <p class="section-subtitle">Nous ne sommes pas une école classique. Nous sommes votre incubateur de réussite à l'étranger.</p>
+    <p class="section-subtitle">Plus qu'une formation, un écosystème complet pour ta réussite et ton intégration.</p>
     
     <div class="flip-grid">
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -274,13 +270,13 @@
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🏠</span>
-                    <h3>Installation VIP</h3>
-                    <p>Arrive avec ta valise, on gère le reste.</p>
+                    <span style="font-size: 4rem; display: block; margin-bottom: 20px;">💼</span>
+                    <h3>Stages & Avenir</h3>
+                    <p>On booste ton CV avec de vraies expériences.</p>
                 </div>
                 <div class="card-back">
-                    <h3>Zéro Galère Immo</h3>
-                    <p>Oublie les arnaques. Notre service "City Manager" te trouve ton logement avant ton arrivée, t'accueille à l'aéroport et t'intègre à la communauté locale.</p>
+                    <h3>Ton Tremplin Pro</h3>
+                    <p>Ne cherche pas ton stage tout seul. Accède à notre base de données d'entreprises partenaires, bénéficie d'ateliers CV en espagnol et prépare tes entretiens avec nos coachs.</p>
                 </div>
             </div>
         </div>
@@ -288,33 +284,58 @@
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="card-front">
-                    <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🌊</span>
-                    <h3>Life-Balance</h3>
-                    <p>Étudier le matin, Surfer l'après-midi.</p>
+                    <span style="font-size: 4rem; display: block; margin-bottom: 20px;">🏠</span>
+                    <h3>Installation VIP</h3>
+                    <p>Arrive avec ta valise, on gère le reste.</p>
                 </div>
                 <div class="card-back">
-                    <h3>Cadre Stimulant</h3>
-                    <p>Accès inclus à notre espace de Coworking partenaire à Santa Cruz. Tu étudies dans un environnement pro, entouré d'entrepreneurs, loin de la grisaille.</p>
+                    <h3>Zéro Galère Immo</h3>
+                    <p>Notre service "City Manager" te trouve ton logement avant ton arrivée, t'accueille à l'aéroport et t'aide pour l'ouverture de ton compte bancaire et ton NIE.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="admissions">
-    <h2 class="section-title">Pourquoi notre modèle est unique ?</h2>
-    <div class="features-grid">
-        <div class="feature-card">
-            <h3>🚀 Entrées Permanentes</h3>
-            <p>Tu as raté la rentrée de septembre ? Tu veux arrêter la Fac en cours d'année ? Chez nous, une nouvelle promo démarre tous les 3 mois. Ne perds pas de temps.</p>
+<section class="services-full">
+    <h2 class="section-title">Tout ce que nous faisons pour toi</h2>
+    <p class="section-subtitle">Ton abonnement inclut bien plus que des cours. C'est un assistant personnel dédié à ta réussite.</p>
+    
+    <div class="services-grid">
+        <div class="service-block">
+            <span class="service-icon">🚀</span>
+            <h3>Career Center</h3>
+            <ul class="service-list">
+                <li>Aide active à la recherche de stage (base de données exclusive)</li>
+                <li>Atelier "CV International" (Anglais / Espagnol)</li>
+                <li>Simulation d'entretiens d'embauche</li>
+                <li>Mise en relation avec des entrepreneurs locaux</li>
+                <li>Convention de stage simplifiée</li>
+            </ul>
         </div>
-        <div class="feature-card">
-            <h3>📚 Candidat Libre Encadré</h3>
-            <p>Tu passes le vrai BTS d'État (examen officiel). Nous t'apportons la structure, la discipline et la méthodologie qui manquent quand on révise seul.</p>
+
+        <div class="service-block">
+            <span class="service-icon">📝</span>
+            <h3>Assistant Administratif</h3>
+            <ul class="service-list">
+                <li>Accompagnement obtention du NIE (obligatoire)</li>
+                <li>Aide à l'ouverture de compte bancaire espagnol</li>
+                <li>Inscription sécurité sociale étudiante</li>
+                <li>Abonnement transports en commun & Carte résidant</li>
+                <li>Mise en relation médecins francophones</li>
+            </ul>
         </div>
-        <div class="feature-card">
-            <h3>🌴 Immersion Totale</h3>
-            <p>Apprends l'espagnol sur le terrain. Fais tes stages dans des entreprises touristiques locales. C'est un accélérateur de CV imbattable.</p>
+
+        <div class="service-block">
+            <span class="service-icon">🌴</span>
+            <h3>Vie Étudiante & Réseau</h3>
+            <ul class="service-list">
+                <li>Accès illimité à l'espace Coworking partenaire</li>
+                <li>Afterworks entrepreneuriaux & Networking</li>
+                <li>Activités mensuelles (Surf, Rando Volcan, Sorties)</li>
+                <li>Communauté d'entraide active sur place</li>
+                <li>Accueil personnalisé à l'aéroport</li>
+            </ul>
         </div>
     </div>
 </section>
@@ -331,17 +352,12 @@
         
         <div class="check-list">
             <div class="check-item"><span class="check-icon">✓</span> Coaching Pédagogique Quotidien</div>
-            <div class="check-item"><span class="check-icon">✓</span> Accès illimité Coworking</div>
-            <div class="check-item"><span class="check-icon">✓</span> Service "City Manager" sur place</div>
-            <div class="check-item"><span class="check-icon">✓</span> Masterclass Business & IA</div>
-            <div class="check-item" style="color:#aaa; font-size:0.9rem; margin-top:20px;">* Logement & Inscription CNED non inclus (Budget estimé logement : 500-700€/mois)</div>
+            <div class="check-item"><span class="check-icon">✓</span> <b>Aide recherche Stage & Emploi</b></div>
+            <div class="check-item"><span class="check-icon">✓</span> Service "City Manager" (Admin & Logement)</div>
+            <div class="check-item"><span class="check-icon">✓</span> Accès illimité Coworking & Activités</div>
+            <div class="check-item" style="color:#aaa; font-size:0.9rem; margin-top:20px;">* Logement & Inscription CNED non inclus</div>
         </div>
     </div>
-    
-    <p style="max-width:600px; margin:0 auto; color:#666; font-size:0.9rem;">
-        Engagement minimum de 3 mois (1 trimestre). Renouvelable selon vos besoins pédagogiques. 
-        L'hébergement est à régler directement aux propriétaires (zéro frais d'agence grâce à notre réseau).
-    </p>
 </section>
 
 <section id="contact" class="contact-section">
@@ -359,7 +375,7 @@
                 <option value="octobre2026">Octobre 2026 (La Grande Rentrée)</option>
                 <option value="janvier2027">Janvier 2027</option>
             </select>
-            <textarea placeholder="Quel BTS prépares-tu ? (GPME, MCO, Tourisme...)" rows="3"></textarea>
+            <textarea placeholder="Quel BTS prépares-tu ? As-tu besoin d'un stage ?" rows="3"></textarea>
             <button type="submit" class="btn-submit">Valider ma pré-inscription</button>
         </form>
     </div>
@@ -367,9 +383,9 @@
 
 <footer>
     <span class="footer-logo">NOMAD CAMPUS TENERIFE</span>
-    <p>© 2026. Coaching Pédagogique & Services aux Étudiants.</p>
+    <p>© 2026. Coaching Pédagogique, Carrière & Services aux Étudiants.</p>
     <div class="legal-note">
-        * AVERTISSEMENT LÉGAL : Nomad Campus est une entreprise de prestation de services (Coaching et Conciergerie) et non un établissement d'enseignement supérieur agréé par l'État. Les étudiants sont inscrits en régime de "Candidat Libre" aux examens du BTS ou via le CNED. Nomad Campus assure l'accompagnement méthodologique, logistique et humain, mais ne délivre pas le diplôme. Les loyers sont versés directement aux propriétaires partenaires.
+        * AVERTISSEMENT LÉGAL : Nomad Campus est une entreprise de prestation de services et non un établissement d'enseignement supérieur agréé par l'État. Les étudiants sont inscrits en régime de "Candidat Libre" aux examens du BTS ou via le CNED. Nomad Campus assure l'accompagnement méthodologique, l'aide à la recherche de stage et le support logistique, mais ne peut garantir l'obtention du diplôme ni l'embauche finale par les entreprises partenaires.
     </div>
 </footer>
 
